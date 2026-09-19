@@ -37,6 +37,7 @@
 static void spmv_ell_rows(const ell_matrix * A, const csr_matrix * csr,
                           const float * x, float * y)
 {
+    #pragma omp parallel for schedule(runtime)
     (void)csr;
     const int K = A->max_row_len;
     for (int i = 0; i < A->num_rows; i++) {

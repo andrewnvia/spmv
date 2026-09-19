@@ -41,6 +41,7 @@
  * schedule must follow --schedule without recompiling. */
 static void spmv_csr_rows(const csr_matrix * A, const float * x, float * y)
 {
+    #pragma omp parallel for schedule(runtime)
     for (int i = 0; i < A->num_rows; i++) {
         float sum = 0.0f;
         for (int k = A->row_ptr[i]; k < A->row_ptr[i+1]; k++)
