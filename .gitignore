@@ -55,3 +55,7 @@ dkms.conf
 *.dwo
 
 matrices/
+spmv-omp-csr
+spmv-csr
+spmv-ell
+spmv-omp-ell
