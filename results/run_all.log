@@ -1,7 +1,7 @@
 
 ##############################################################################
-#  SpMV full sweep   Fri Sep 18 22:03:05 EDT 2026
-#  host=c20  cores=32  timeout=600s/run
+#  SpMV full sweep   Sat Sep 19 18:56:18 EDT 2026
+#  host=c2  cores=16  timeout=600s/run
 #  matrices : ecology2 atmosmodd lp_wood1p heart1
 #  threads  : 1 2 4 8 16
 #  schedules: static dynamic,16 dynamic,64 dynamic,256 guided
@@ -45,9 +45,9 @@ Reading sparse matrix from file (matrices/ecology2.mtx): done
 
 file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991
 storage: COO 59.95 MB, CSR 43.97 MB (CSR/COO = 0.733)
-	Performing 611 iterations
-	benchmarking CSR-SpMV:   4.6951 ms (  2.13 GFLOP/s  14.5 GB/s)
- -> time=4.6951 ms | 2.13 GFLOP/s | 14.5 GB/s | check=base
+	Performing 800 iterations
+	benchmarking CSR-SpMV:   2.2796 ms (  4.38 GFLOP/s  29.8 GB/s)
+ -> time=2.2796 ms | 4.38 GFLOP/s | 29.8 GB/s | check=base
 
 
 ==============================================================================
@@ -59,11 +59,11 @@ Reading sparse matrix from file (matrices/ecology2.mtx): done
 file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991 max_row_len=5
 storage: COO 59.95 MB, CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91)
 padding: 4004 of 4999995 slots are explicit zeros (0.1%)
-conversion: 9.5572 ms
+conversion: 5.5174 ms
 correctness vs CSR: PASS (relative L2 error 0.000e+00)
-	Performing 779 iterations
-	benchmarking ELL-SpMV:   3.8564 ms (  2.59 GFLOP/s  16.6 GB/s)
- -> time=3.8564 ms | 2.59 GFLOP/s | 16.6 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking ELL-SpMV:   1.9186 ms (  5.21 GFLOP/s  33.4 GB/s)
+ -> time=1.9186 ms | 5.21 GFLOP/s | 33.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -76,9 +76,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991
 threads=1 schedule=static partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 638 iterations
-	benchmarking OpenMP CSR-SpMV:   4.6988 ms (  2.13 GFLOP/s  14.5 GB/s)
- -> time=4.6988 ms | 2.13 GFLOP/s | 14.5 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   2.5101 ms (  3.98 GFLOP/s  27.1 GB/s)
+ -> time=2.5101 ms | 3.98 GFLOP/s | 27.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -91,9 +91,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991
 threads=1 schedule=dynamic,16 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 582 iterations
-	benchmarking OpenMP CSR-SpMV:   5.2408 ms (  1.91 GFLOP/s  13.0 GB/s)
- -> time=5.2408 ms | 1.91 GFLOP/s | 13.0 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   2.7009 ms (  3.70 GFLOP/s  25.2 GB/s)
+ -> time=2.7009 ms | 3.70 GFLOP/s | 25.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -106,9 +106,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991
 threads=1 schedule=dynamic,64 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 617 iterations
-	benchmarking OpenMP CSR-SpMV:   4.9023 ms (  2.04 GFLOP/s  13.9 GB/s)
- -> time=4.9023 ms | 2.04 GFLOP/s | 13.9 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   2.6541 ms (  3.76 GFLOP/s  25.6 GB/s)
+ -> time=2.6541 ms | 3.76 GFLOP/s | 25.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -121,9 +121,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991
 threads=1 schedule=dynamic,256 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 633 iterations
-	benchmarking OpenMP CSR-SpMV:   4.8320 ms (  2.07 GFLOP/s  14.1 GB/s)
- -> time=4.8320 ms | 2.07 GFLOP/s | 14.1 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   2.5931 ms (  3.85 GFLOP/s  26.2 GB/s)
+ -> time=2.5931 ms | 3.85 GFLOP/s | 26.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -136,9 +136,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991
 threads=1 schedule=guided partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 640 iterations
-	benchmarking OpenMP CSR-SpMV:   4.7247 ms (  2.11 GFLOP/s  14.4 GB/s)
- -> time=4.7247 ms | 2.11 GFLOP/s | 14.4 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   2.5207 ms (  3.96 GFLOP/s  27.0 GB/s)
+ -> time=2.5207 ms | 3.96 GFLOP/s | 27.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -151,9 +151,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991
 threads=1 schedule=static partition=nnz
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 594 iterations
-	benchmarking OpenMP CSR-SpMV:   5.0340 ms (  1.98 GFLOP/s  13.5 GB/s)
- -> time=5.0340 ms | 1.98 GFLOP/s | 13.5 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   2.5343 ms (  3.94 GFLOP/s  26.8 GB/s)
+ -> time=2.5343 ms | 3.94 GFLOP/s | 26.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -167,8 +167,8 @@ threads=2 schedule=static partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   2.4062 ms (  4.15 GFLOP/s  28.2 GB/s)
- -> time=2.4062 ms | 4.15 GFLOP/s | 28.2 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   1.2255 ms (  8.15 GFLOP/s  55.4 GB/s)
+ -> time=1.2255 ms | 8.15 GFLOP/s | 55.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -181,9 +181,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991
 threads=2 schedule=dynamic,16 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 398 iterations
-	benchmarking OpenMP CSR-SpMV:   7.1980 ms (  1.39 GFLOP/s   9.4 GB/s)
- -> time=7.1980 ms | 1.39 GFLOP/s | 9.4 GB/s | check=PASS
+	Performing 324 iterations
+	benchmarking OpenMP CSR-SpMV:   9.2804 ms (  1.08 GFLOP/s   7.3 GB/s)
+ -> time=9.2804 ms | 1.08 GFLOP/s | 7.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -196,9 +196,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991
 threads=2 schedule=dynamic,64 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 447 iterations
-	benchmarking OpenMP CSR-SpMV:   6.6757 ms (  1.50 GFLOP/s  10.2 GB/s)
- -> time=6.6757 ms | 1.50 GFLOP/s | 10.2 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   3.2802 ms (  3.05 GFLOP/s  20.7 GB/s)
+ -> time=3.2802 ms | 3.05 GFLOP/s | 20.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -211,9 +211,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991
 threads=2 schedule=dynamic,256 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 696 iterations
-	benchmarking OpenMP CSR-SpMV:   4.2181 ms (  2.37 GFLOP/s  16.1 GB/s)
- -> time=4.2181 ms | 2.37 GFLOP/s | 16.1 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   2.2808 ms (  4.38 GFLOP/s  29.8 GB/s)
+ -> time=2.2808 ms | 4.38 GFLOP/s | 29.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -227,8 +227,8 @@ threads=2 schedule=guided partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   2.4139 ms (  4.14 GFLOP/s  28.1 GB/s)
- -> time=2.4139 ms | 4.14 GFLOP/s | 28.1 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   1.1840 ms (  8.44 GFLOP/s  57.4 GB/s)
+ -> time=1.1840 ms | 8.44 GFLOP/s | 57.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -242,8 +242,8 @@ threads=2 schedule=static partition=nnz
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   2.8804 ms (  3.47 GFLOP/s  23.6 GB/s)
- -> time=2.8804 ms | 3.47 GFLOP/s | 23.6 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   1.4733 ms (  6.78 GFLOP/s  46.1 GB/s)
+ -> time=1.4733 ms | 6.78 GFLOP/s | 46.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -257,8 +257,8 @@ threads=4 schedule=static partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.1666 ms (  8.57 GFLOP/s  58.2 GB/s)
- -> time=1.1666 ms | 8.57 GFLOP/s | 58.2 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.6225 ms ( 16.05 GFLOP/s 109.2 GB/s)
+ -> time=0.6225 ms | 16.05 GFLOP/s | 109.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -271,9 +271,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991
 threads=4 schedule=dynamic,16 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 260 iterations
-	benchmarking OpenMP CSR-SpMV:  12.8732 ms (  0.78 GFLOP/s   5.3 GB/s)
- -> time=12.8732 ms | 0.78 GFLOP/s | 5.3 GB/s | check=PASS
+	Performing 574 iterations
+	benchmarking OpenMP CSR-SpMV:   5.2101 ms (  1.92 GFLOP/s  13.0 GB/s)
+ -> time=5.2101 ms | 1.92 GFLOP/s | 13.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -286,9 +286,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991
 threads=4 schedule=dynamic,64 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 566 iterations
-	benchmarking OpenMP CSR-SpMV:   5.0005 ms (  2.00 GFLOP/s  13.6 GB/s)
- -> time=5.0005 ms | 2.00 GFLOP/s | 13.6 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   2.0760 ms (  4.81 GFLOP/s  32.7 GB/s)
+ -> time=2.0760 ms | 4.81 GFLOP/s | 32.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -302,8 +302,8 @@ threads=4 schedule=dynamic,256 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   2.8897 ms (  3.46 GFLOP/s  23.5 GB/s)
- -> time=2.8897 ms | 3.46 GFLOP/s | 23.5 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   1.0975 ms (  9.10 GFLOP/s  61.9 GB/s)
+ -> time=1.0975 ms | 9.10 GFLOP/s | 61.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -317,8 +317,8 @@ threads=4 schedule=guided partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.4951 ms (  6.68 GFLOP/s  45.4 GB/s)
- -> time=1.4951 ms | 6.68 GFLOP/s | 45.4 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.6204 ms ( 16.11 GFLOP/s 109.5 GB/s)
+ -> time=0.6204 ms | 16.11 GFLOP/s | 109.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -332,8 +332,8 @@ threads=4 schedule=static partition=nnz
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.7030 ms (  5.87 GFLOP/s  39.9 GB/s)
- -> time=1.7030 ms | 5.87 GFLOP/s | 39.9 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.9820 ms ( 10.17 GFLOP/s  69.2 GB/s)
+ -> time=0.9820 ms | 10.17 GFLOP/s | 69.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -347,8 +347,8 @@ threads=8 schedule=static partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.5897 ms ( 16.94 GFLOP/s 115.2 GB/s)
- -> time=0.5897 ms | 16.94 GFLOP/s | 115.2 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.3232 ms ( 30.92 GFLOP/s 210.3 GB/s)
+ -> time=0.3232 ms | 30.92 GFLOP/s | 210.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -361,9 +361,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991
 threads=8 schedule=dynamic,16 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 365 iterations
-	benchmarking OpenMP CSR-SpMV:   7.0426 ms (  1.42 GFLOP/s   9.6 GB/s)
- -> time=7.0426 ms | 1.42 GFLOP/s | 9.6 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   2.5291 ms (  3.95 GFLOP/s  26.9 GB/s)
+ -> time=2.5291 ms | 3.95 GFLOP/s | 26.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -377,8 +377,8 @@ threads=8 schedule=dynamic,64 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   2.4165 ms (  4.13 GFLOP/s  28.1 GB/s)
- -> time=2.4165 ms | 4.13 GFLOP/s | 28.1 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   1.0673 ms (  9.36 GFLOP/s  63.7 GB/s)
+ -> time=1.0673 ms | 9.36 GFLOP/s | 63.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -392,8 +392,8 @@ threads=8 schedule=dynamic,256 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.6868 ms (  5.92 GFLOP/s  40.3 GB/s)
- -> time=1.6868 ms | 5.92 GFLOP/s | 40.3 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.5912 ms ( 16.90 GFLOP/s 114.9 GB/s)
+ -> time=0.5912 ms | 16.90 GFLOP/s | 114.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -407,8 +407,8 @@ threads=8 schedule=guided partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.2522 ms (  7.98 GFLOP/s  54.3 GB/s)
- -> time=1.2522 ms | 7.98 GFLOP/s | 54.3 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.3385 ms ( 29.52 GFLOP/s 200.7 GB/s)
+ -> time=0.3385 ms | 29.52 GFLOP/s | 200.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -422,8 +422,8 @@ threads=8 schedule=static partition=nnz
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.1541 ms (  8.66 GFLOP/s  58.9 GB/s)
- -> time=1.1541 ms | 8.66 GFLOP/s | 58.9 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.7420 ms ( 13.47 GFLOP/s  91.6 GB/s)
+ -> time=0.7420 ms | 13.47 GFLOP/s | 91.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -437,8 +437,8 @@ threads=16 schedule=static partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.2989 ms ( 33.43 GFLOP/s 227.3 GB/s)
- -> time=0.2989 ms | 33.43 GFLOP/s | 227.3 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.2103 ms ( 47.51 GFLOP/s 323.1 GB/s)
+ -> time=0.2103 ms | 47.51 GFLOP/s | 323.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -451,9 +451,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991
 threads=16 schedule=dynamic,16 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 767 iterations
-	benchmarking OpenMP CSR-SpMV:   4.0896 ms (  2.44 GFLOP/s  16.6 GB/s)
- -> time=4.0896 ms | 2.44 GFLOP/s | 16.6 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   1.6877 ms (  5.92 GFLOP/s  40.3 GB/s)
+ -> time=1.6877 ms | 5.92 GFLOP/s | 40.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -467,8 +467,8 @@ threads=16 schedule=dynamic,64 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.6474 ms (  6.07 GFLOP/s  41.2 GB/s)
- -> time=1.6474 ms | 6.07 GFLOP/s | 41.2 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.6524 ms ( 15.32 GFLOP/s 104.2 GB/s)
+ -> time=0.6524 ms | 15.32 GFLOP/s | 104.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -482,8 +482,8 @@ threads=16 schedule=dynamic,256 partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.4883 ms (  6.71 GFLOP/s  45.7 GB/s)
- -> time=1.4883 ms | 6.71 GFLOP/s | 45.7 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.3643 ms ( 27.43 GFLOP/s 186.5 GB/s)
+ -> time=0.3643 ms | 27.43 GFLOP/s | 186.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -497,8 +497,8 @@ threads=16 schedule=guided partition=row
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.1705 ms (  8.54 GFLOP/s  58.1 GB/s)
- -> time=1.1705 ms | 8.54 GFLOP/s | 58.1 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.2477 ms ( 40.34 GFLOP/s 274.4 GB/s)
+ -> time=0.2477 ms | 40.34 GFLOP/s | 274.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -512,8 +512,8 @@ threads=16 schedule=static partition=nnz
 storage: CSR 43.97 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.5885 ms (  6.29 GFLOP/s  42.8 GB/s)
- -> time=1.5885 ms | 6.29 GFLOP/s | 42.8 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.6646 ms ( 15.03 GFLOP/s 102.2 GB/s)
+ -> time=0.6646 ms | 15.03 GFLOP/s | 102.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -527,8 +527,8 @@ threads=1 schedule=static partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   3.7598 ms (  2.66 GFLOP/s  17.0 GB/s)
- -> time=3.7598 ms | 2.66 GFLOP/s | 17.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   2.0513 ms (  4.87 GFLOP/s  31.2 GB/s)
+ -> time=2.0513 ms | 4.87 GFLOP/s | 31.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -541,9 +541,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991 max_row_len=
 threads=1 schedule=dynamic,16 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 708 iterations
-	benchmarking OpenMP ELL-SpMV:   4.2381 ms (  2.36 GFLOP/s  15.1 GB/s)
- -> time=4.2381 ms | 2.36 GFLOP/s | 15.1 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   2.1575 ms (  4.63 GFLOP/s  29.7 GB/s)
+ -> time=2.1575 ms | 4.63 GFLOP/s | 29.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -556,9 +556,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991 max_row_len=
 threads=1 schedule=dynamic,64 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 755 iterations
-	benchmarking OpenMP ELL-SpMV:   3.9911 ms (  2.50 GFLOP/s  16.0 GB/s)
- -> time=3.9911 ms | 2.50 GFLOP/s | 16.0 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   2.0796 ms (  4.80 GFLOP/s  30.8 GB/s)
+ -> time=2.0796 ms | 4.80 GFLOP/s | 30.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -571,9 +571,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991 max_row_len=
 threads=1 schedule=dynamic,256 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 788 iterations
-	benchmarking OpenMP ELL-SpMV:   3.8074 ms (  2.62 GFLOP/s  16.8 GB/s)
- -> time=3.8074 ms | 2.62 GFLOP/s | 16.8 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   2.0970 ms (  4.76 GFLOP/s  30.5 GB/s)
+ -> time=2.0970 ms | 4.76 GFLOP/s | 30.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -587,8 +587,8 @@ threads=1 schedule=guided partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   3.7508 ms (  2.66 GFLOP/s  17.1 GB/s)
- -> time=3.7508 ms | 2.66 GFLOP/s | 17.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   2.0261 ms (  4.93 GFLOP/s  31.6 GB/s)
+ -> time=2.0261 ms | 4.93 GFLOP/s | 31.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -602,8 +602,8 @@ threads=1 schedule=static partition=nnz
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   3.7488 ms (  2.67 GFLOP/s  17.1 GB/s)
- -> time=3.7488 ms | 2.67 GFLOP/s | 17.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   2.2874 ms (  4.37 GFLOP/s  28.0 GB/s)
+ -> time=2.2874 ms | 4.37 GFLOP/s | 28.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -617,8 +617,8 @@ threads=2 schedule=static partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.9110 ms (  5.23 GFLOP/s  33.5 GB/s)
- -> time=1.9110 ms | 5.23 GFLOP/s | 33.5 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.9850 ms ( 10.14 GFLOP/s  65.0 GB/s)
+ -> time=0.9850 ms | 10.14 GFLOP/s | 65.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -631,9 +631,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991 max_row_len=
 threads=2 schedule=dynamic,16 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 378 iterations
-	benchmarking OpenMP ELL-SpMV:   7.9746 ms (  1.25 GFLOP/s   8.0 GB/s)
- -> time=7.9746 ms | 1.25 GFLOP/s | 8.0 GB/s | check=PASS
+	Performing 322 iterations
+	benchmarking OpenMP ELL-SpMV:   9.2565 ms (  1.08 GFLOP/s   6.9 GB/s)
+ -> time=9.2565 ms | 1.08 GFLOP/s | 6.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -646,9 +646,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991 max_row_len=
 threads=2 schedule=dynamic,64 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 488 iterations
-	benchmarking OpenMP ELL-SpMV:   6.0070 ms (  1.66 GFLOP/s  10.7 GB/s)
- -> time=6.0070 ms | 1.66 GFLOP/s | 10.7 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   3.1091 ms (  3.21 GFLOP/s  20.6 GB/s)
+ -> time=3.1091 ms | 3.21 GFLOP/s | 20.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -662,8 +662,8 @@ threads=2 schedule=dynamic,256 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   3.6244 ms (  2.76 GFLOP/s  17.7 GB/s)
- -> time=3.6244 ms | 2.76 GFLOP/s | 17.7 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   2.0249 ms (  4.93 GFLOP/s  31.6 GB/s)
+ -> time=2.0249 ms | 4.93 GFLOP/s | 31.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -677,8 +677,8 @@ threads=2 schedule=guided partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   2.0033 ms (  4.99 GFLOP/s  31.9 GB/s)
- -> time=2.0033 ms | 4.99 GFLOP/s | 31.9 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.9881 ms ( 10.11 GFLOP/s  64.8 GB/s)
+ -> time=0.9881 ms | 10.11 GFLOP/s | 64.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -692,8 +692,8 @@ threads=2 schedule=static partition=nnz
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.9178 ms (  5.21 GFLOP/s  33.4 GB/s)
- -> time=1.9178 ms | 5.21 GFLOP/s | 33.4 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   1.3787 ms (  7.25 GFLOP/s  46.4 GB/s)
+ -> time=1.3787 ms | 7.25 GFLOP/s | 46.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -707,8 +707,8 @@ threads=4 schedule=static partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.9145 ms ( 10.93 GFLOP/s  70.0 GB/s)
- -> time=0.9145 ms | 10.93 GFLOP/s | 70.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.5097 ms ( 19.60 GFLOP/s 125.6 GB/s)
+ -> time=0.5097 ms | 19.60 GFLOP/s | 125.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -721,9 +721,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991 max_row_len=
 threads=4 schedule=dynamic,16 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 284 iterations
-	benchmarking OpenMP ELL-SpMV:  11.0658 ms (  0.90 GFLOP/s   5.8 GB/s)
- -> time=11.0658 ms | 0.90 GFLOP/s | 5.8 GB/s | check=PASS
+	Performing 556 iterations
+	benchmarking OpenMP ELL-SpMV:   5.4305 ms (  1.84 GFLOP/s  11.8 GB/s)
+ -> time=5.4305 ms | 1.84 GFLOP/s | 11.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -736,9 +736,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991 max_row_len=
 threads=4 schedule=dynamic,64 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 620 iterations
-	benchmarking OpenMP ELL-SpMV:   4.3931 ms (  2.27 GFLOP/s  14.6 GB/s)
- -> time=4.3931 ms | 2.27 GFLOP/s | 14.6 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   1.8091 ms (  5.52 GFLOP/s  35.4 GB/s)
+ -> time=1.8091 ms | 5.52 GFLOP/s | 35.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -752,8 +752,8 @@ threads=4 schedule=dynamic,256 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   2.3265 ms (  4.29 GFLOP/s  27.5 GB/s)
- -> time=2.3265 ms | 4.29 GFLOP/s | 27.5 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.9623 ms ( 10.38 GFLOP/s  66.5 GB/s)
+ -> time=0.9623 ms | 10.38 GFLOP/s | 66.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -767,8 +767,8 @@ threads=4 schedule=guided partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.3386 ms (  7.46 GFLOP/s  47.8 GB/s)
- -> time=1.3386 ms | 7.46 GFLOP/s | 47.8 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.5014 ms ( 19.93 GFLOP/s 127.6 GB/s)
+ -> time=0.5014 ms | 19.93 GFLOP/s | 127.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -782,8 +782,8 @@ threads=4 schedule=static partition=nnz
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.9137 ms ( 10.94 GFLOP/s  70.0 GB/s)
- -> time=0.9137 ms | 10.94 GFLOP/s | 70.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.9336 ms ( 10.70 GFLOP/s  68.6 GB/s)
+ -> time=0.9336 ms | 10.70 GFLOP/s | 68.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -797,8 +797,8 @@ threads=8 schedule=static partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.4633 ms ( 21.57 GFLOP/s 138.1 GB/s)
- -> time=0.4633 ms | 21.57 GFLOP/s | 138.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.2618 ms ( 38.17 GFLOP/s 244.5 GB/s)
+ -> time=0.2618 ms | 38.17 GFLOP/s | 244.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -811,9 +811,9 @@ file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991 max_row_len=
 threads=8 schedule=dynamic,16 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 405 iterations
-	benchmarking OpenMP ELL-SpMV:   7.9786 ms (  1.25 GFLOP/s   8.0 GB/s)
- -> time=7.9786 ms | 1.25 GFLOP/s | 8.0 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   2.5324 ms (  3.95 GFLOP/s  25.3 GB/s)
+ -> time=2.5324 ms | 3.95 GFLOP/s | 25.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -827,8 +827,8 @@ threads=8 schedule=dynamic,64 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   2.1233 ms (  4.71 GFLOP/s  30.1 GB/s)
- -> time=2.1233 ms | 4.71 GFLOP/s | 30.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.9144 ms ( 10.93 GFLOP/s  70.0 GB/s)
+ -> time=0.9144 ms | 10.93 GFLOP/s | 70.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -842,8 +842,8 @@ threads=8 schedule=dynamic,256 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.5335 ms (  6.52 GFLOP/s  41.7 GB/s)
- -> time=1.5335 ms | 6.52 GFLOP/s | 41.7 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.5147 ms ( 19.41 GFLOP/s 124.4 GB/s)
+ -> time=0.5147 ms | 19.41 GFLOP/s | 124.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -857,8 +857,8 @@ threads=8 schedule=guided partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.1239 ms (  8.89 GFLOP/s  56.9 GB/s)
- -> time=1.1239 ms | 8.89 GFLOP/s | 56.9 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.2658 ms ( 37.59 GFLOP/s 240.7 GB/s)
+ -> time=0.2658 ms | 37.59 GFLOP/s | 240.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -872,8 +872,8 @@ threads=8 schedule=static partition=nnz
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.4623 ms ( 21.61 GFLOP/s 138.4 GB/s)
- -> time=0.4623 ms | 21.61 GFLOP/s | 138.4 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.7146 ms ( 13.98 GFLOP/s  89.6 GB/s)
+ -> time=0.7146 ms | 13.98 GFLOP/s | 89.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -887,8 +887,8 @@ threads=16 schedule=static partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.2411 ms ( 41.44 GFLOP/s 265.4 GB/s)
- -> time=0.2411 ms | 41.44 GFLOP/s | 265.4 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.1681 ms ( 59.43 GFLOP/s 380.7 GB/s)
+ -> time=0.1681 ms | 59.43 GFLOP/s | 380.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -902,8 +902,8 @@ threads=16 schedule=dynamic,16 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   4.0058 ms (  2.49 GFLOP/s  16.0 GB/s)
- -> time=4.0058 ms | 2.49 GFLOP/s | 16.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   1.7072 ms (  5.85 GFLOP/s  37.5 GB/s)
+ -> time=1.7072 ms | 5.85 GFLOP/s | 37.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -917,8 +917,8 @@ threads=16 schedule=dynamic,64 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.3618 ms (  7.34 GFLOP/s  47.0 GB/s)
- -> time=1.3618 ms | 7.34 GFLOP/s | 47.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.5531 ms ( 18.07 GFLOP/s 115.7 GB/s)
+ -> time=0.5531 ms | 18.07 GFLOP/s | 115.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -932,8 +932,8 @@ threads=16 schedule=dynamic,256 partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.3439 ms (  7.43 GFLOP/s  47.6 GB/s)
- -> time=1.3439 ms | 7.43 GFLOP/s | 47.6 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.3116 ms ( 32.06 GFLOP/s 205.4 GB/s)
+ -> time=0.3116 ms | 32.06 GFLOP/s | 205.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -947,8 +947,8 @@ threads=16 schedule=guided partition=row
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.9145 ms ( 10.93 GFLOP/s  70.0 GB/s)
- -> time=0.9145 ms | 10.93 GFLOP/s | 70.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.2158 ms ( 46.31 GFLOP/s 296.6 GB/s)
+ -> time=0.2158 ms | 46.31 GFLOP/s | 296.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -962,8 +962,8 @@ threads=16 schedule=static partition=nnz
 storage: CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91), padding 0.1%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.2369 ms ( 42.17 GFLOP/s 270.1 GB/s)
- -> time=0.2369 ms | 42.17 GFLOP/s | 270.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.6222 ms ( 16.06 GFLOP/s 102.9 GB/s)
+ -> time=0.6222 ms | 16.06 GFLOP/s | 102.9 GB/s | check=PASS
 
 
 
@@ -981,9 +981,9 @@ Reading sparse matrix from file (matrices/atmosmodd.mtx): done
 
 file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 storage: COO 105.78 MB, CSR 75.60 MB (CSR/COO = 0.715)
-	Performing 386 iterations
-	benchmarking CSR-SpMV:   7.5155 ms (  2.35 GFLOP/s  15.4 GB/s)
- -> time=7.5155 ms | 2.35 GFLOP/s | 15.4 GB/s | check=base
+	Performing 745 iterations
+	benchmarking CSR-SpMV:   3.5380 ms (  4.98 GFLOP/s  32.8 GB/s)
+ -> time=3.5380 ms | 4.98 GFLOP/s | 32.8 GB/s | check=base
 
 
 ==============================================================================
@@ -995,11 +995,11 @@ Reading sparse matrix from file (matrices/atmosmodd.mtx): done
 file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_len=7
 storage: COO 105.78 MB, CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94)
 padding: 78144 of 8893024 slots are explicit zeros (0.9%)
-conversion: 13.7926 ms
+conversion: 7.3751 ms
 correctness vs CSR: PASS (relative L2 error 0.000e+00)
-	Performing 488 iterations
-	benchmarking ELL-SpMV:   6.1404 ms (  2.87 GFLOP/s  18.2 GB/s)
- -> time=6.1404 ms | 2.87 GFLOP/s | 18.2 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking ELL-SpMV:   3.1856 ms (  5.53 GFLOP/s  35.1 GB/s)
+ -> time=3.1856 ms | 5.53 GFLOP/s | 35.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1012,9 +1012,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=1 schedule=static partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 396 iterations
-	benchmarking OpenMP CSR-SpMV:   7.5605 ms (  2.33 GFLOP/s  15.3 GB/s)
- -> time=7.5605 ms | 2.33 GFLOP/s | 15.3 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   3.5904 ms (  4.91 GFLOP/s  32.3 GB/s)
+ -> time=3.5904 ms | 4.91 GFLOP/s | 32.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1027,9 +1027,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=1 schedule=dynamic,16 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 368 iterations
-	benchmarking OpenMP CSR-SpMV:   8.1707 ms (  2.16 GFLOP/s  14.2 GB/s)
- -> time=8.1707 ms | 2.16 GFLOP/s | 14.2 GB/s | check=PASS
+	Performing 750 iterations
+	benchmarking OpenMP CSR-SpMV:   4.0422 ms (  4.36 GFLOP/s  28.7 GB/s)
+ -> time=4.0422 ms | 4.36 GFLOP/s | 28.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1042,9 +1042,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=1 schedule=dynamic,64 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 385 iterations
-	benchmarking OpenMP CSR-SpMV:   7.7792 ms (  2.27 GFLOP/s  14.9 GB/s)
- -> time=7.7792 ms | 2.27 GFLOP/s | 14.9 GB/s | check=PASS
+	Performing 779 iterations
+	benchmarking OpenMP CSR-SpMV:   3.8859 ms (  4.54 GFLOP/s  29.8 GB/s)
+ -> time=3.8859 ms | 4.54 GFLOP/s | 29.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1057,9 +1057,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=1 schedule=dynamic,256 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 391 iterations
-	benchmarking OpenMP CSR-SpMV:   7.6736 ms (  2.30 GFLOP/s  15.1 GB/s)
- -> time=7.6736 ms | 2.30 GFLOP/s | 15.1 GB/s | check=PASS
+	Performing 771 iterations
+	benchmarking OpenMP CSR-SpMV:   3.9483 ms (  4.47 GFLOP/s  29.4 GB/s)
+ -> time=3.9483 ms | 4.47 GFLOP/s | 29.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1072,9 +1072,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=1 schedule=guided partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 393 iterations
-	benchmarking OpenMP CSR-SpMV:   7.6192 ms (  2.31 GFLOP/s  15.2 GB/s)
- -> time=7.6192 ms | 2.31 GFLOP/s | 15.2 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   3.5810 ms (  4.92 GFLOP/s  32.4 GB/s)
+ -> time=3.5810 ms | 4.92 GFLOP/s | 32.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1087,9 +1087,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=1 schedule=static partition=nnz
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 375 iterations
-	benchmarking OpenMP CSR-SpMV:   7.9866 ms (  2.21 GFLOP/s  14.5 GB/s)
- -> time=7.9866 ms | 2.21 GFLOP/s | 14.5 GB/s | check=PASS
+	Performing 789 iterations
+	benchmarking OpenMP CSR-SpMV:   3.8631 ms (  4.56 GFLOP/s  30.0 GB/s)
+ -> time=3.8631 ms | 4.56 GFLOP/s | 30.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1102,9 +1102,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=2 schedule=static partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 722 iterations
-	benchmarking OpenMP CSR-SpMV:   3.8817 ms (  4.54 GFLOP/s  29.9 GB/s)
- -> time=3.8817 ms | 4.54 GFLOP/s | 29.9 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   1.8621 ms (  9.47 GFLOP/s  62.3 GB/s)
+ -> time=1.8621 ms | 9.47 GFLOP/s | 62.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1117,9 +1117,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=2 schedule=dynamic,16 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 255 iterations
-	benchmarking OpenMP CSR-SpMV:  10.6633 ms (  1.65 GFLOP/s  10.9 GB/s)
- -> time=10.6633 ms | 1.65 GFLOP/s | 10.9 GB/s | check=PASS
+	Performing 232 iterations
+	benchmarking OpenMP CSR-SpMV:  12.8604 ms (  1.37 GFLOP/s   9.0 GB/s)
+ -> time=12.8604 ms | 1.37 GFLOP/s | 9.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1132,9 +1132,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=2 schedule=dynamic,64 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 307 iterations
-	benchmarking OpenMP CSR-SpMV:   9.6104 ms (  1.83 GFLOP/s  12.1 GB/s)
- -> time=9.6104 ms | 1.83 GFLOP/s | 12.1 GB/s | check=PASS
+	Performing 487 iterations
+	benchmarking OpenMP CSR-SpMV:   5.7332 ms (  3.08 GFLOP/s  20.2 GB/s)
+ -> time=5.7332 ms | 3.08 GFLOP/s | 20.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1147,9 +1147,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=2 schedule=dynamic,256 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 460 iterations
-	benchmarking OpenMP CSR-SpMV:   6.6667 ms (  2.64 GFLOP/s  17.4 GB/s)
- -> time=6.6667 ms | 2.64 GFLOP/s | 17.4 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   3.3328 ms (  5.29 GFLOP/s  34.8 GB/s)
+ -> time=3.3328 ms | 5.29 GFLOP/s | 34.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1162,9 +1162,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=2 schedule=guided partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 738 iterations
-	benchmarking OpenMP CSR-SpMV:   3.8951 ms (  4.53 GFLOP/s  29.8 GB/s)
- -> time=3.8951 ms | 4.53 GFLOP/s | 29.8 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   1.8928 ms (  9.31 GFLOP/s  61.3 GB/s)
+ -> time=1.8928 ms | 9.31 GFLOP/s | 61.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1177,9 +1177,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=2 schedule=static partition=nnz
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 642 iterations
-	benchmarking OpenMP CSR-SpMV:   4.5780 ms (  3.85 GFLOP/s  25.3 GB/s)
- -> time=4.5780 ms | 3.85 GFLOP/s | 25.3 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   2.2903 ms (  7.70 GFLOP/s  50.6 GB/s)
+ -> time=2.2903 ms | 7.70 GFLOP/s | 50.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1193,8 +1193,8 @@ threads=4 schedule=static partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   2.8735 ms (  6.14 GFLOP/s  40.3 GB/s)
- -> time=2.8735 ms | 6.14 GFLOP/s | 40.3 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.9904 ms ( 17.80 GFLOP/s 117.1 GB/s)
+ -> time=0.9904 ms | 17.80 GFLOP/s | 117.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1207,9 +1207,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=4 schedule=dynamic,16 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 280 iterations
-	benchmarking OpenMP CSR-SpMV:  10.7528 ms (  1.64 GFLOP/s  10.8 GB/s)
- -> time=10.7528 ms | 1.64 GFLOP/s | 10.8 GB/s | check=PASS
+	Performing 307 iterations
+	benchmarking OpenMP CSR-SpMV:   9.5953 ms (  1.84 GFLOP/s  12.1 GB/s)
+ -> time=9.5953 ms | 1.84 GFLOP/s | 12.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1222,9 +1222,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=4 schedule=dynamic,64 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 477 iterations
-	benchmarking OpenMP CSR-SpMV:   6.2098 ms (  2.84 GFLOP/s  18.7 GB/s)
- -> time=6.2098 ms | 2.84 GFLOP/s | 18.7 GB/s | check=PASS
+	Performing 757 iterations
+	benchmarking OpenMP CSR-SpMV:   3.5859 ms (  4.92 GFLOP/s  32.3 GB/s)
+ -> time=3.5859 ms | 4.92 GFLOP/s | 32.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1237,9 +1237,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=4 schedule=dynamic,256 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 736 iterations
-	benchmarking OpenMP CSR-SpMV:   4.1229 ms (  4.28 GFLOP/s  28.1 GB/s)
- -> time=4.1229 ms | 4.28 GFLOP/s | 28.1 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   1.6502 ms ( 10.68 GFLOP/s  70.3 GB/s)
+ -> time=1.6502 ms | 10.68 GFLOP/s | 70.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1253,8 +1253,8 @@ threads=4 schedule=guided partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   2.8339 ms (  6.22 GFLOP/s  40.9 GB/s)
- -> time=2.8339 ms | 6.22 GFLOP/s | 40.9 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.9772 ms ( 18.04 GFLOP/s 118.6 GB/s)
+ -> time=0.9772 ms | 18.04 GFLOP/s | 118.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1268,8 +1268,8 @@ threads=4 schedule=static partition=nnz
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   3.2699 ms (  5.39 GFLOP/s  35.5 GB/s)
- -> time=3.2699 ms | 5.39 GFLOP/s | 35.5 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   1.4708 ms ( 11.99 GFLOP/s  78.8 GB/s)
+ -> time=1.4708 ms | 11.99 GFLOP/s | 78.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1283,8 +1283,8 @@ threads=8 schedule=static partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.7938 ms (  9.83 GFLOP/s  64.6 GB/s)
- -> time=1.7938 ms | 9.83 GFLOP/s | 64.6 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.5318 ms ( 33.15 GFLOP/s 218.0 GB/s)
+ -> time=0.5318 ms | 33.15 GFLOP/s | 218.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1297,9 +1297,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=8 schedule=dynamic,16 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 346 iterations
-	benchmarking OpenMP CSR-SpMV:  11.1876 ms (  1.58 GFLOP/s  10.4 GB/s)
- -> time=11.1876 ms | 1.58 GFLOP/s | 10.4 GB/s | check=PASS
+	Performing 476 iterations
+	benchmarking OpenMP CSR-SpMV:   6.0325 ms (  2.92 GFLOP/s  19.2 GB/s)
+ -> time=6.0325 ms | 2.92 GFLOP/s | 19.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1312,9 +1312,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=8 schedule=dynamic,64 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 641 iterations
-	benchmarking OpenMP CSR-SpMV:   5.0233 ms (  3.51 GFLOP/s  23.1 GB/s)
- -> time=5.0233 ms | 3.51 GFLOP/s | 23.1 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   2.1040 ms (  8.38 GFLOP/s  55.1 GB/s)
+ -> time=2.1040 ms | 8.38 GFLOP/s | 55.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1328,8 +1328,8 @@ threads=8 schedule=dynamic,256 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   3.3350 ms (  5.29 GFLOP/s  34.8 GB/s)
- -> time=3.3350 ms | 5.29 GFLOP/s | 34.8 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.9117 ms ( 19.34 GFLOP/s 127.2 GB/s)
+ -> time=0.9117 ms | 19.34 GFLOP/s | 127.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1343,8 +1343,8 @@ threads=8 schedule=guided partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   2.7337 ms (  6.45 GFLOP/s  42.4 GB/s)
- -> time=2.7337 ms | 6.45 GFLOP/s | 42.4 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.5340 ms ( 33.02 GFLOP/s 217.1 GB/s)
+ -> time=0.5340 ms | 33.02 GFLOP/s | 217.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1358,8 +1358,8 @@ threads=8 schedule=static partition=nnz
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   2.2619 ms (  7.79 GFLOP/s  51.3 GB/s)
- -> time=2.2619 ms | 7.79 GFLOP/s | 51.3 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   1.1160 ms ( 15.80 GFLOP/s 103.9 GB/s)
+ -> time=1.1160 ms | 15.80 GFLOP/s | 103.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1373,8 +1373,8 @@ threads=16 schedule=static partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.8890 ms ( 19.83 GFLOP/s 130.4 GB/s)
- -> time=0.8890 ms | 19.83 GFLOP/s | 130.4 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.3688 ms ( 47.81 GFLOP/s 314.4 GB/s)
+ -> time=0.3688 ms | 47.81 GFLOP/s | 314.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1387,9 +1387,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=16 schedule=dynamic,16 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 428 iterations
-	benchmarking OpenMP CSR-SpMV:   6.4237 ms (  2.74 GFLOP/s  18.0 GB/s)
- -> time=6.4237 ms | 2.74 GFLOP/s | 18.0 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   3.2735 ms (  5.39 GFLOP/s  35.4 GB/s)
+ -> time=3.2735 ms | 5.39 GFLOP/s | 35.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1402,9 +1402,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=16 schedule=dynamic,64 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 650 iterations
-	benchmarking OpenMP CSR-SpMV:   3.1782 ms (  5.55 GFLOP/s  36.5 GB/s)
- -> time=3.1782 ms | 5.55 GFLOP/s | 36.5 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   1.2926 ms ( 13.64 GFLOP/s  89.7 GB/s)
+ -> time=1.2926 ms | 13.64 GFLOP/s | 89.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1417,9 +1417,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880
 threads=16 schedule=dynamic,256 partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 211 iterations
-	benchmarking OpenMP CSR-SpMV:   3.8924 ms (  4.53 GFLOP/s  29.8 GB/s)
- -> time=3.8924 ms | 4.53 GFLOP/s | 29.8 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP CSR-SpMV:   0.6001 ms ( 29.38 GFLOP/s 193.2 GB/s)
+ -> time=0.6001 ms | 29.38 GFLOP/s | 193.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1433,8 +1433,8 @@ threads=16 schedule=guided partition=row
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.8620 ms (  9.47 GFLOP/s  62.3 GB/s)
- -> time=1.8620 ms | 9.47 GFLOP/s | 62.3 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.4376 ms ( 40.29 GFLOP/s 265.0 GB/s)
+ -> time=0.4376 ms | 40.29 GFLOP/s | 265.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1448,8 +1448,8 @@ threads=16 schedule=static partition=nnz
 storage: CSR 75.60 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   2.0707 ms (  8.51 GFLOP/s  56.0 GB/s)
- -> time=2.0707 ms | 8.51 GFLOP/s | 56.0 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.9379 ms ( 18.80 GFLOP/s 123.6 GB/s)
+ -> time=0.9379 ms | 18.80 GFLOP/s | 123.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1462,9 +1462,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=1 schedule=static partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 467 iterations
-	benchmarking OpenMP ELL-SpMV:   6.4137 ms (  2.75 GFLOP/s  17.4 GB/s)
- -> time=6.4137 ms | 2.75 GFLOP/s | 17.4 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   3.1140 ms (  5.66 GFLOP/s  35.9 GB/s)
+ -> time=3.1140 ms | 5.66 GFLOP/s | 35.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1477,9 +1477,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=1 schedule=dynamic,16 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 433 iterations
-	benchmarking OpenMP ELL-SpMV:   6.9412 ms (  2.54 GFLOP/s  16.1 GB/s)
- -> time=6.9412 ms | 2.54 GFLOP/s | 16.1 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   3.4061 ms (  5.18 GFLOP/s  32.8 GB/s)
+ -> time=3.4061 ms | 5.18 GFLOP/s | 32.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1492,9 +1492,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=1 schedule=dynamic,64 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 460 iterations
-	benchmarking OpenMP ELL-SpMV:   6.5245 ms (  2.70 GFLOP/s  17.1 GB/s)
- -> time=6.5245 ms | 2.70 GFLOP/s | 17.1 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   3.2019 ms (  5.51 GFLOP/s  34.9 GB/s)
+ -> time=3.2019 ms | 5.51 GFLOP/s | 34.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1507,9 +1507,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=1 schedule=dynamic,256 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 467 iterations
-	benchmarking OpenMP ELL-SpMV:   6.4254 ms (  2.74 GFLOP/s  17.4 GB/s)
- -> time=6.4254 ms | 2.74 GFLOP/s | 17.4 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   3.2009 ms (  5.51 GFLOP/s  34.9 GB/s)
+ -> time=3.2009 ms | 5.51 GFLOP/s | 34.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1522,9 +1522,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=1 schedule=guided partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 465 iterations
-	benchmarking OpenMP ELL-SpMV:   6.4454 ms (  2.74 GFLOP/s  17.3 GB/s)
- -> time=6.4454 ms | 2.74 GFLOP/s | 17.3 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   3.0856 ms (  5.71 GFLOP/s  36.2 GB/s)
+ -> time=3.0856 ms | 5.71 GFLOP/s | 36.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1537,9 +1537,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=1 schedule=static partition=nnz
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 470 iterations
-	benchmarking OpenMP ELL-SpMV:   6.3800 ms (  2.76 GFLOP/s  17.5 GB/s)
- -> time=6.3800 ms | 2.76 GFLOP/s | 17.5 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   3.4960 ms (  5.04 GFLOP/s  32.0 GB/s)
+ -> time=3.4960 ms | 5.04 GFLOP/s | 32.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1553,8 +1553,8 @@ threads=2 schedule=static partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   3.2737 ms (  5.39 GFLOP/s  34.2 GB/s)
- -> time=3.2737 ms | 5.39 GFLOP/s | 34.2 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   1.5993 ms ( 11.02 GFLOP/s  69.9 GB/s)
+ -> time=1.5993 ms | 11.02 GFLOP/s | 69.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1567,9 +1567,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=2 schedule=dynamic,16 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 265 iterations
-	benchmarking OpenMP ELL-SpMV:  11.6095 ms (  1.52 GFLOP/s   9.6 GB/s)
- -> time=11.6095 ms | 1.52 GFLOP/s | 9.6 GB/s | check=PASS
+	Performing 234 iterations
+	benchmarking OpenMP ELL-SpMV:  12.7976 ms (  1.38 GFLOP/s   8.7 GB/s)
+ -> time=12.7976 ms | 1.38 GFLOP/s | 8.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1582,9 +1582,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=2 schedule=dynamic,64 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 298 iterations
-	benchmarking OpenMP ELL-SpMV:   9.7022 ms (  1.82 GFLOP/s  11.5 GB/s)
- -> time=9.7022 ms | 1.82 GFLOP/s | 11.5 GB/s | check=PASS
+	Performing 554 iterations
+	benchmarking OpenMP ELL-SpMV:   4.6745 ms (  3.77 GFLOP/s  23.9 GB/s)
+ -> time=4.6745 ms | 3.77 GFLOP/s | 23.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1597,9 +1597,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=2 schedule=dynamic,256 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 509 iterations
-	benchmarking OpenMP ELL-SpMV:   6.0682 ms (  2.91 GFLOP/s  18.4 GB/s)
- -> time=6.0682 ms | 2.91 GFLOP/s | 18.4 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   2.9550 ms (  5.97 GFLOP/s  37.8 GB/s)
+ -> time=2.9550 ms | 5.97 GFLOP/s | 37.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1613,8 +1613,8 @@ threads=2 schedule=guided partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   3.2811 ms (  5.37 GFLOP/s  34.1 GB/s)
- -> time=3.2811 ms | 5.37 GFLOP/s | 34.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   1.6941 ms ( 10.41 GFLOP/s  66.0 GB/s)
+ -> time=1.6941 ms | 10.41 GFLOP/s | 66.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1628,8 +1628,8 @@ threads=2 schedule=static partition=nnz
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   3.2775 ms (  5.38 GFLOP/s  34.1 GB/s)
- -> time=3.2775 ms | 5.38 GFLOP/s | 34.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   2.1501 ms (  8.20 GFLOP/s  52.0 GB/s)
+ -> time=2.1501 ms | 8.20 GFLOP/s | 52.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1643,8 +1643,8 @@ threads=4 schedule=static partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   2.6803 ms (  6.58 GFLOP/s  41.7 GB/s)
- -> time=2.6803 ms | 6.58 GFLOP/s | 41.7 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.8558 ms ( 20.60 GFLOP/s 130.6 GB/s)
+ -> time=0.8558 ms | 20.60 GFLOP/s | 130.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1657,9 +1657,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=4 schedule=dynamic,16 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 250 iterations
-	benchmarking OpenMP ELL-SpMV:  11.8510 ms (  1.49 GFLOP/s   9.4 GB/s)
- -> time=11.8510 ms | 1.49 GFLOP/s | 9.4 GB/s | check=PASS
+	Performing 331 iterations
+	benchmarking OpenMP ELL-SpMV:   8.8306 ms (  2.00 GFLOP/s  12.7 GB/s)
+ -> time=8.8306 ms | 2.00 GFLOP/s | 12.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1672,9 +1672,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=4 schedule=dynamic,64 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 481 iterations
-	benchmarking OpenMP ELL-SpMV:   6.2089 ms (  2.84 GFLOP/s  18.0 GB/s)
- -> time=6.2089 ms | 2.84 GFLOP/s | 18.0 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   2.8001 ms (  6.30 GFLOP/s  39.9 GB/s)
+ -> time=2.8001 ms | 6.30 GFLOP/s | 39.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1688,8 +1688,8 @@ threads=4 schedule=dynamic,256 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   3.6803 ms (  4.79 GFLOP/s  30.4 GB/s)
- -> time=3.6803 ms | 4.79 GFLOP/s | 30.4 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   1.4360 ms ( 12.28 GFLOP/s  77.9 GB/s)
+ -> time=1.4360 ms | 12.28 GFLOP/s | 77.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1703,8 +1703,8 @@ threads=4 schedule=guided partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   2.6782 ms (  6.58 GFLOP/s  41.7 GB/s)
- -> time=2.6782 ms | 6.58 GFLOP/s | 41.7 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.8411 ms ( 20.96 GFLOP/s 132.9 GB/s)
+ -> time=0.8411 ms | 20.96 GFLOP/s | 132.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1718,8 +1718,8 @@ threads=4 schedule=static partition=nnz
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   2.7893 ms (  6.32 GFLOP/s  40.1 GB/s)
- -> time=2.7893 ms | 6.32 GFLOP/s | 40.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   1.4260 ms ( 12.36 GFLOP/s  78.4 GB/s)
+ -> time=1.4260 ms | 12.36 GFLOP/s | 78.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1733,8 +1733,8 @@ threads=8 schedule=static partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.6493 ms ( 10.69 GFLOP/s  67.8 GB/s)
- -> time=1.6493 ms | 10.69 GFLOP/s | 67.8 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.4560 ms ( 38.66 GFLOP/s 245.2 GB/s)
+ -> time=0.4560 ms | 38.66 GFLOP/s | 245.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1747,9 +1747,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=8 schedule=dynamic,16 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 350 iterations
-	benchmarking OpenMP ELL-SpMV:  10.9057 ms (  1.62 GFLOP/s  10.3 GB/s)
- -> time=10.9057 ms | 1.62 GFLOP/s | 10.3 GB/s | check=PASS
+	Performing 547 iterations
+	benchmarking OpenMP ELL-SpMV:   5.1971 ms (  3.39 GFLOP/s  21.5 GB/s)
+ -> time=5.1971 ms | 3.39 GFLOP/s | 21.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1762,9 +1762,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=8 schedule=dynamic,64 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 667 iterations
-	benchmarking OpenMP ELL-SpMV:   5.0091 ms (  3.52 GFLOP/s  22.3 GB/s)
- -> time=5.0091 ms | 3.52 GFLOP/s | 22.3 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   1.7651 ms (  9.99 GFLOP/s  63.3 GB/s)
+ -> time=1.7651 ms | 9.99 GFLOP/s | 63.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1778,8 +1778,8 @@ threads=8 schedule=dynamic,256 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   3.3415 ms (  5.28 GFLOP/s  33.5 GB/s)
- -> time=3.3415 ms | 5.28 GFLOP/s | 33.5 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.8112 ms ( 21.73 GFLOP/s 137.8 GB/s)
+ -> time=0.8112 ms | 21.73 GFLOP/s | 137.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1793,8 +1793,8 @@ threads=8 schedule=guided partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   2.3812 ms (  7.40 GFLOP/s  47.0 GB/s)
- -> time=2.3812 ms | 7.40 GFLOP/s | 47.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.4739 ms ( 37.20 GFLOP/s 235.9 GB/s)
+ -> time=0.4739 ms | 37.20 GFLOP/s | 235.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1808,8 +1808,8 @@ threads=8 schedule=static partition=nnz
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.6182 ms ( 10.89 GFLOP/s  69.1 GB/s)
- -> time=1.6182 ms | 10.89 GFLOP/s | 69.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   1.0248 ms ( 17.20 GFLOP/s 109.1 GB/s)
+ -> time=1.0248 ms | 17.20 GFLOP/s | 109.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1823,8 +1823,8 @@ threads=16 schedule=static partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.7709 ms ( 22.87 GFLOP/s 145.0 GB/s)
- -> time=0.7709 ms | 22.87 GFLOP/s | 145.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.3088 ms ( 57.10 GFLOP/s 362.1 GB/s)
+ -> time=0.3088 ms | 57.10 GFLOP/s | 362.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1837,9 +1837,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=16 schedule=dynamic,16 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 467 iterations
-	benchmarking OpenMP ELL-SpMV:   6.0636 ms (  2.91 GFLOP/s  18.4 GB/s)
- -> time=6.0636 ms | 2.91 GFLOP/s | 18.4 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   2.7753 ms (  6.35 GFLOP/s  40.3 GB/s)
+ -> time=2.7753 ms | 6.35 GFLOP/s | 40.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1852,9 +1852,9 @@ file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_l
 threads=16 schedule=dynamic,64 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 751 iterations
-	benchmarking OpenMP ELL-SpMV:   2.9317 ms (  6.01 GFLOP/s  38.1 GB/s)
- -> time=2.9317 ms | 6.01 GFLOP/s | 38.1 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   1.1149 ms ( 15.81 GFLOP/s 100.3 GB/s)
+ -> time=1.1149 ms | 15.81 GFLOP/s | 100.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1868,8 +1868,8 @@ threads=16 schedule=dynamic,256 partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   2.5216 ms (  6.99 GFLOP/s  44.3 GB/s)
- -> time=2.5216 ms | 6.99 GFLOP/s | 44.3 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.5078 ms ( 34.72 GFLOP/s 220.2 GB/s)
+ -> time=0.5078 ms | 34.72 GFLOP/s | 220.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1883,8 +1883,8 @@ threads=16 schedule=guided partition=row
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.8403 ms (  9.58 GFLOP/s  60.7 GB/s)
- -> time=1.8403 ms | 9.58 GFLOP/s | 60.7 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.3908 ms ( 45.11 GFLOP/s 286.1 GB/s)
+ -> time=0.3908 ms | 45.11 GFLOP/s | 286.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1898,8 +1898,8 @@ threads=16 schedule=static partition=nnz
 storage: CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94), padding 0.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.7816 ms ( 22.56 GFLOP/s 143.0 GB/s)
- -> time=0.7816 ms | 22.56 GFLOP/s | 143.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.9103 ms ( 19.37 GFLOP/s 122.8 GB/s)
+ -> time=0.9103 ms | 19.37 GFLOP/s | 122.8 GB/s | check=PASS
 
 
 
@@ -1918,8 +1918,8 @@ Reading sparse matrix from file (matrices/lp_wood1p.mtx): done
 file=matrices/lp_wood1p.mtx rows=244 cols=2595 nonzeros=70216
 storage: COO 0.84 MB, CSR 0.56 MB (CSR/COO = 0.668)
 	Performing 800 iterations
-	benchmarking CSR-SpMV:   0.0637 ms (  2.20 GFLOP/s  13.3 GB/s)
- -> time=0.0637 ms | 2.20 GFLOP/s | 13.3 GB/s | check=base
+	benchmarking CSR-SpMV:   0.0327 ms (  4.30 GFLOP/s  25.8 GB/s)
+ -> time=0.0327 ms | 4.30 GFLOP/s | 25.8 GB/s | check=base
 
 
 ==============================================================================
@@ -1931,11 +1931,11 @@ Reading sparse matrix from file (matrices/lp_wood1p.mtx): done
 file=matrices/lp_wood1p.mtx rows=244 cols=2595 nonzeros=70216 max_row_len=2592
 storage: COO 0.84 MB, CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99)
 padding: 562232 of 632448 slots are explicit zeros (88.9%)
-conversion: 0.4405 ms
+conversion: 0.3566 ms
 correctness vs CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking ELL-SpMV:   0.5755 ms (  0.24 GFLOP/s  13.2 GB/s)
- -> time=0.5755 ms | 0.24 GFLOP/s | 13.2 GB/s | check=PASS
+	benchmarking ELL-SpMV:   0.3016 ms (  0.47 GFLOP/s  25.2 GB/s)
+ -> time=0.3016 ms | 0.47 GFLOP/s | 25.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1949,8 +1949,8 @@ threads=1 schedule=static partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0635 ms (  2.21 GFLOP/s  13.3 GB/s)
- -> time=0.0635 ms | 2.21 GFLOP/s | 13.3 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0325 ms (  4.32 GFLOP/s  26.0 GB/s)
+ -> time=0.0325 ms | 4.32 GFLOP/s | 26.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1964,8 +1964,8 @@ threads=1 schedule=dynamic,16 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0637 ms (  2.20 GFLOP/s  13.2 GB/s)
- -> time=0.0637 ms | 2.20 GFLOP/s | 13.2 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0329 ms (  4.27 GFLOP/s  25.7 GB/s)
+ -> time=0.0329 ms | 4.27 GFLOP/s | 25.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1979,8 +1979,8 @@ threads=1 schedule=dynamic,64 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0649 ms (  2.17 GFLOP/s  13.0 GB/s)
- -> time=0.0649 ms | 2.17 GFLOP/s | 13.0 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0327 ms (  4.30 GFLOP/s  25.8 GB/s)
+ -> time=0.0327 ms | 4.30 GFLOP/s | 25.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -1994,8 +1994,8 @@ threads=1 schedule=dynamic,256 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0635 ms (  2.21 GFLOP/s  13.3 GB/s)
- -> time=0.0635 ms | 2.21 GFLOP/s | 13.3 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0327 ms (  4.29 GFLOP/s  25.8 GB/s)
+ -> time=0.0327 ms | 4.29 GFLOP/s | 25.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2009,8 +2009,8 @@ threads=1 schedule=guided partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0634 ms (  2.21 GFLOP/s  13.3 GB/s)
- -> time=0.0634 ms | 2.21 GFLOP/s | 13.3 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0327 ms (  4.30 GFLOP/s  25.9 GB/s)
+ -> time=0.0327 ms | 4.30 GFLOP/s | 25.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2024,8 +2024,8 @@ threads=1 schedule=static partition=nnz
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0634 ms (  2.21 GFLOP/s  13.3 GB/s)
- -> time=0.0634 ms | 2.21 GFLOP/s | 13.3 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0324 ms (  4.33 GFLOP/s  26.0 GB/s)
+ -> time=0.0324 ms | 4.33 GFLOP/s | 26.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2039,8 +2039,8 @@ threads=2 schedule=static partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0442 ms (  3.18 GFLOP/s  19.1 GB/s)
- -> time=0.0442 ms | 3.18 GFLOP/s | 19.1 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0226 ms (  6.22 GFLOP/s  37.4 GB/s)
+ -> time=0.0226 ms | 6.22 GFLOP/s | 37.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2054,8 +2054,8 @@ threads=2 schedule=dynamic,16 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0365 ms (  3.85 GFLOP/s  23.1 GB/s)
- -> time=0.0365 ms | 3.85 GFLOP/s | 23.1 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0195 ms (  7.20 GFLOP/s  43.3 GB/s)
+ -> time=0.0195 ms | 7.20 GFLOP/s | 43.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2069,8 +2069,8 @@ threads=2 schedule=dynamic,64 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0408 ms (  3.44 GFLOP/s  20.7 GB/s)
- -> time=0.0408 ms | 3.44 GFLOP/s | 20.7 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0212 ms (  6.63 GFLOP/s  39.8 GB/s)
+ -> time=0.0212 ms | 6.63 GFLOP/s | 39.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2084,8 +2084,8 @@ threads=2 schedule=dynamic,256 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0648 ms (  2.17 GFLOP/s  13.0 GB/s)
- -> time=0.0648 ms | 2.17 GFLOP/s | 13.0 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0336 ms (  4.18 GFLOP/s  25.1 GB/s)
+ -> time=0.0336 ms | 4.18 GFLOP/s | 25.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2099,8 +2099,8 @@ threads=2 schedule=guided partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0350 ms (  4.01 GFLOP/s  24.1 GB/s)
- -> time=0.0350 ms | 4.01 GFLOP/s | 24.1 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0183 ms (  7.65 GFLOP/s  46.0 GB/s)
+ -> time=0.0183 ms | 7.65 GFLOP/s | 46.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2114,8 +2114,8 @@ threads=2 schedule=static partition=nnz
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0338 ms (  4.16 GFLOP/s  25.0 GB/s)
- -> time=0.0338 ms | 4.16 GFLOP/s | 25.0 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0182 ms (  7.73 GFLOP/s  46.5 GB/s)
+ -> time=0.0182 ms | 7.73 GFLOP/s | 46.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2129,8 +2129,8 @@ threads=4 schedule=static partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0318 ms (  4.42 GFLOP/s  26.6 GB/s)
- -> time=0.0318 ms | 4.42 GFLOP/s | 26.6 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0168 ms (  8.36 GFLOP/s  50.3 GB/s)
+ -> time=0.0168 ms | 8.36 GFLOP/s | 50.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2144,8 +2144,8 @@ threads=4 schedule=dynamic,16 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0220 ms (  6.38 GFLOP/s  38.4 GB/s)
- -> time=0.0220 ms | 6.38 GFLOP/s | 38.4 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0120 ms ( 11.67 GFLOP/s  70.2 GB/s)
+ -> time=0.0120 ms | 11.67 GFLOP/s | 70.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2159,8 +2159,8 @@ threads=4 schedule=dynamic,64 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0298 ms (  4.71 GFLOP/s  28.4 GB/s)
- -> time=0.0298 ms | 4.71 GFLOP/s | 28.4 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0158 ms (  8.87 GFLOP/s  53.4 GB/s)
+ -> time=0.0158 ms | 8.87 GFLOP/s | 53.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2174,8 +2174,8 @@ threads=4 schedule=dynamic,256 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0653 ms (  2.15 GFLOP/s  12.9 GB/s)
- -> time=0.0653 ms | 2.15 GFLOP/s | 12.9 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0338 ms (  4.16 GFLOP/s  25.0 GB/s)
+ -> time=0.0338 ms | 4.16 GFLOP/s | 25.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2189,8 +2189,8 @@ threads=4 schedule=guided partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0199 ms (  7.05 GFLOP/s  42.4 GB/s)
- -> time=0.0199 ms | 7.05 GFLOP/s | 42.4 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0105 ms ( 13.41 GFLOP/s  80.7 GB/s)
+ -> time=0.0105 ms | 13.41 GFLOP/s | 80.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2204,8 +2204,8 @@ threads=4 schedule=static partition=nnz
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0190 ms (  7.38 GFLOP/s  44.4 GB/s)
- -> time=0.0190 ms | 7.38 GFLOP/s | 44.4 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0108 ms ( 13.00 GFLOP/s  78.2 GB/s)
+ -> time=0.0108 ms | 13.00 GFLOP/s | 78.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2219,8 +2219,8 @@ threads=8 schedule=static partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0225 ms (  6.24 GFLOP/s  37.5 GB/s)
- -> time=0.0225 ms | 6.24 GFLOP/s | 37.5 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0118 ms ( 11.92 GFLOP/s  71.7 GB/s)
+ -> time=0.0118 ms | 11.92 GFLOP/s | 71.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2234,8 +2234,8 @@ threads=8 schedule=dynamic,16 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0164 ms (  8.59 GFLOP/s  51.6 GB/s)
- -> time=0.0164 ms | 8.59 GFLOP/s | 51.6 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0085 ms ( 16.48 GFLOP/s  99.1 GB/s)
+ -> time=0.0085 ms | 16.48 GFLOP/s | 99.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2249,8 +2249,8 @@ threads=8 schedule=dynamic,64 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0308 ms (  4.55 GFLOP/s  27.4 GB/s)
- -> time=0.0308 ms | 4.55 GFLOP/s | 27.4 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0156 ms (  9.01 GFLOP/s  54.2 GB/s)
+ -> time=0.0156 ms | 9.01 GFLOP/s | 54.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2264,8 +2264,8 @@ threads=8 schedule=dynamic,256 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0659 ms (  2.13 GFLOP/s  12.8 GB/s)
- -> time=0.0659 ms | 2.13 GFLOP/s | 12.8 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0347 ms (  4.04 GFLOP/s  24.3 GB/s)
+ -> time=0.0347 ms | 4.04 GFLOP/s | 24.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2279,8 +2279,8 @@ threads=8 schedule=guided partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0144 ms (  9.73 GFLOP/s  58.5 GB/s)
- -> time=0.0144 ms | 9.73 GFLOP/s | 58.5 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0075 ms ( 18.69 GFLOP/s 112.4 GB/s)
+ -> time=0.0075 ms | 18.69 GFLOP/s | 112.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2294,8 +2294,8 @@ threads=8 schedule=static partition=nnz
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0119 ms ( 11.82 GFLOP/s  71.1 GB/s)
- -> time=0.0119 ms | 11.82 GFLOP/s | 71.1 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0073 ms ( 19.29 GFLOP/s 116.0 GB/s)
+ -> time=0.0073 ms | 19.29 GFLOP/s | 116.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2309,8 +2309,8 @@ threads=16 schedule=static partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0160 ms (  8.80 GFLOP/s  52.9 GB/s)
- -> time=0.0160 ms | 8.80 GFLOP/s | 52.9 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0090 ms ( 15.62 GFLOP/s  94.0 GB/s)
+ -> time=0.0090 ms | 15.62 GFLOP/s | 94.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2324,8 +2324,8 @@ threads=16 schedule=dynamic,16 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0139 ms ( 10.13 GFLOP/s  60.9 GB/s)
- -> time=0.0139 ms | 10.13 GFLOP/s | 60.9 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0078 ms ( 17.92 GFLOP/s 107.8 GB/s)
+ -> time=0.0078 ms | 17.92 GFLOP/s | 107.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2339,8 +2339,8 @@ threads=16 schedule=dynamic,64 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0320 ms (  4.39 GFLOP/s  26.4 GB/s)
- -> time=0.0320 ms | 4.39 GFLOP/s | 26.4 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0169 ms (  8.32 GFLOP/s  50.0 GB/s)
+ -> time=0.0169 ms | 8.32 GFLOP/s | 50.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2354,8 +2354,8 @@ threads=16 schedule=dynamic,256 partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0671 ms (  2.09 GFLOP/s  12.6 GB/s)
- -> time=0.0671 ms | 2.09 GFLOP/s | 12.6 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0349 ms (  4.03 GFLOP/s  24.2 GB/s)
+ -> time=0.0349 ms | 4.03 GFLOP/s | 24.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2369,8 +2369,8 @@ threads=16 schedule=guided partition=row
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0136 ms ( 10.36 GFLOP/s  62.3 GB/s)
- -> time=0.0136 ms | 10.36 GFLOP/s | 62.3 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0076 ms ( 18.56 GFLOP/s 111.6 GB/s)
+ -> time=0.0076 ms | 18.56 GFLOP/s | 111.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2384,8 +2384,8 @@ threads=16 schedule=static partition=nnz
 storage: CSR 0.56 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0095 ms ( 14.75 GFLOP/s  88.7 GB/s)
- -> time=0.0095 ms | 14.75 GFLOP/s | 88.7 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0051 ms ( 27.48 GFLOP/s 165.2 GB/s)
+ -> time=0.0051 ms | 27.48 GFLOP/s | 165.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2399,8 +2399,8 @@ threads=1 schedule=static partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.5755 ms (  0.24 GFLOP/s  13.2 GB/s)
- -> time=0.5755 ms | 0.24 GFLOP/s | 13.2 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.3039 ms (  0.46 GFLOP/s  25.0 GB/s)
+ -> time=0.3039 ms | 0.46 GFLOP/s | 25.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2414,8 +2414,8 @@ threads=1 schedule=dynamic,16 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.5841 ms (  0.24 GFLOP/s  13.0 GB/s)
- -> time=0.5841 ms | 0.24 GFLOP/s | 13.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.3044 ms (  0.46 GFLOP/s  24.9 GB/s)
+ -> time=0.3044 ms | 0.46 GFLOP/s | 24.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2429,8 +2429,8 @@ threads=1 schedule=dynamic,64 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.5759 ms (  0.24 GFLOP/s  13.2 GB/s)
- -> time=0.5759 ms | 0.24 GFLOP/s | 13.2 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.3041 ms (  0.46 GFLOP/s  25.0 GB/s)
+ -> time=0.3041 ms | 0.46 GFLOP/s | 25.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2444,8 +2444,8 @@ threads=1 schedule=dynamic,256 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.5760 ms (  0.24 GFLOP/s  13.2 GB/s)
- -> time=0.5760 ms | 0.24 GFLOP/s | 13.2 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.3021 ms (  0.46 GFLOP/s  25.1 GB/s)
+ -> time=0.3021 ms | 0.46 GFLOP/s | 25.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2459,8 +2459,8 @@ threads=1 schedule=guided partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.5759 ms (  0.24 GFLOP/s  13.2 GB/s)
- -> time=0.5759 ms | 0.24 GFLOP/s | 13.2 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.3021 ms (  0.46 GFLOP/s  25.1 GB/s)
+ -> time=0.3021 ms | 0.46 GFLOP/s | 25.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2474,8 +2474,8 @@ threads=1 schedule=static partition=nnz
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.5815 ms (  0.24 GFLOP/s  13.1 GB/s)
- -> time=0.5815 ms | 0.24 GFLOP/s | 13.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.3034 ms (  0.46 GFLOP/s  25.0 GB/s)
+ -> time=0.3034 ms | 0.46 GFLOP/s | 25.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2489,8 +2489,8 @@ threads=2 schedule=static partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.2900 ms (  0.48 GFLOP/s  26.2 GB/s)
- -> time=0.2900 ms | 0.48 GFLOP/s | 26.2 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.1530 ms (  0.92 GFLOP/s  49.6 GB/s)
+ -> time=0.1530 ms | 0.92 GFLOP/s | 49.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2504,8 +2504,8 @@ threads=2 schedule=dynamic,16 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.3058 ms (  0.46 GFLOP/s  24.8 GB/s)
- -> time=0.3058 ms | 0.46 GFLOP/s | 24.8 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.1614 ms (  0.87 GFLOP/s  47.0 GB/s)
+ -> time=0.1614 ms | 0.87 GFLOP/s | 47.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2519,8 +2519,8 @@ threads=2 schedule=dynamic,64 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.3041 ms (  0.46 GFLOP/s  25.0 GB/s)
- -> time=0.3041 ms | 0.46 GFLOP/s | 25.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.1602 ms (  0.88 GFLOP/s  47.4 GB/s)
+ -> time=0.1602 ms | 0.88 GFLOP/s | 47.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2534,8 +2534,8 @@ threads=2 schedule=dynamic,256 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.5821 ms (  0.24 GFLOP/s  13.0 GB/s)
- -> time=0.5821 ms | 0.24 GFLOP/s | 13.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.3031 ms (  0.46 GFLOP/s  25.0 GB/s)
+ -> time=0.3031 ms | 0.46 GFLOP/s | 25.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2549,8 +2549,8 @@ threads=2 schedule=guided partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.2903 ms (  0.48 GFLOP/s  26.2 GB/s)
- -> time=0.2903 ms | 0.48 GFLOP/s | 26.2 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.1537 ms (  0.91 GFLOP/s  49.4 GB/s)
+ -> time=0.1537 ms | 0.91 GFLOP/s | 49.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2564,8 +2564,8 @@ threads=2 schedule=static partition=nnz
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.2899 ms (  0.48 GFLOP/s  26.2 GB/s)
- -> time=0.2899 ms | 0.48 GFLOP/s | 26.2 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.2224 ms (  0.63 GFLOP/s  34.1 GB/s)
+ -> time=0.2224 ms | 0.63 GFLOP/s | 34.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2579,8 +2579,8 @@ threads=4 schedule=static partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.1481 ms (  0.95 GFLOP/s  51.3 GB/s)
- -> time=0.1481 ms | 0.95 GFLOP/s | 51.3 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.0783 ms (  1.79 GFLOP/s  96.9 GB/s)
+ -> time=0.0783 ms | 1.79 GFLOP/s | 96.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2594,8 +2594,8 @@ threads=4 schedule=dynamic,16 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.1558 ms (  0.90 GFLOP/s  48.7 GB/s)
- -> time=0.1558 ms | 0.90 GFLOP/s | 48.7 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.0823 ms (  1.71 GFLOP/s  92.2 GB/s)
+ -> time=0.0823 ms | 1.71 GFLOP/s | 92.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2609,8 +2609,8 @@ threads=4 schedule=dynamic,64 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.1540 ms (  0.91 GFLOP/s  49.3 GB/s)
- -> time=0.1540 ms | 0.91 GFLOP/s | 49.3 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.0824 ms (  1.70 GFLOP/s  92.1 GB/s)
+ -> time=0.0824 ms | 1.70 GFLOP/s | 92.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2624,8 +2624,8 @@ threads=4 schedule=dynamic,256 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.5783 ms (  0.24 GFLOP/s  13.1 GB/s)
- -> time=0.5783 ms | 0.24 GFLOP/s | 13.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.3035 ms (  0.46 GFLOP/s  25.0 GB/s)
+ -> time=0.3035 ms | 0.46 GFLOP/s | 25.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2639,8 +2639,8 @@ threads=4 schedule=guided partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.1491 ms (  0.94 GFLOP/s  50.9 GB/s)
- -> time=0.1491 ms | 0.94 GFLOP/s | 50.9 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.0790 ms (  1.78 GFLOP/s  96.1 GB/s)
+ -> time=0.0790 ms | 1.78 GFLOP/s | 96.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2654,8 +2654,8 @@ threads=4 schedule=static partition=nnz
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.1485 ms (  0.95 GFLOP/s  51.1 GB/s)
- -> time=0.1485 ms | 0.95 GFLOP/s | 51.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.1124 ms (  1.25 GFLOP/s  67.5 GB/s)
+ -> time=0.1124 ms | 1.25 GFLOP/s | 67.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2669,8 +2669,8 @@ threads=8 schedule=static partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.0785 ms (  1.79 GFLOP/s  96.7 GB/s)
- -> time=0.0785 ms | 1.79 GFLOP/s | 96.7 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.0416 ms (  3.37 GFLOP/s 182.4 GB/s)
+ -> time=0.0416 ms | 3.37 GFLOP/s | 182.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2684,8 +2684,8 @@ threads=8 schedule=dynamic,16 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.0816 ms (  1.72 GFLOP/s  93.0 GB/s)
- -> time=0.0816 ms | 1.72 GFLOP/s | 93.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.0434 ms (  3.24 GFLOP/s 175.0 GB/s)
+ -> time=0.0434 ms | 3.24 GFLOP/s | 175.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2699,8 +2699,8 @@ threads=8 schedule=dynamic,64 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.1556 ms (  0.90 GFLOP/s  48.8 GB/s)
- -> time=0.1556 ms | 0.90 GFLOP/s | 48.8 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.0814 ms (  1.72 GFLOP/s  93.2 GB/s)
+ -> time=0.0814 ms | 1.72 GFLOP/s | 93.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2714,8 +2714,8 @@ threads=8 schedule=dynamic,256 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.5799 ms (  0.24 GFLOP/s  13.1 GB/s)
- -> time=0.5799 ms | 0.24 GFLOP/s | 13.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.3039 ms (  0.46 GFLOP/s  25.0 GB/s)
+ -> time=0.3039 ms | 0.46 GFLOP/s | 25.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2729,8 +2729,8 @@ threads=8 schedule=guided partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.0792 ms (  1.77 GFLOP/s  95.9 GB/s)
- -> time=0.0792 ms | 1.77 GFLOP/s | 95.9 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.0422 ms (  3.33 GFLOP/s 180.0 GB/s)
+ -> time=0.0422 ms | 3.33 GFLOP/s | 180.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2744,8 +2744,8 @@ threads=8 schedule=static partition=nnz
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.0779 ms (  1.80 GFLOP/s  97.5 GB/s)
- -> time=0.0779 ms | 1.80 GFLOP/s | 97.5 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.0652 ms (  2.15 GFLOP/s 116.4 GB/s)
+ -> time=0.0652 ms | 2.15 GFLOP/s | 116.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2759,8 +2759,8 @@ threads=16 schedule=static partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.0428 ms (  3.28 GFLOP/s 177.5 GB/s)
- -> time=0.0428 ms | 3.28 GFLOP/s | 177.5 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.0250 ms (  5.63 GFLOP/s 304.1 GB/s)
+ -> time=0.0250 ms | 5.63 GFLOP/s | 304.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2774,8 +2774,8 @@ threads=16 schedule=dynamic,16 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.0439 ms (  3.20 GFLOP/s 172.8 GB/s)
- -> time=0.0439 ms | 3.20 GFLOP/s | 172.8 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.0255 ms (  5.51 GFLOP/s 298.0 GB/s)
+ -> time=0.0255 ms | 5.51 GFLOP/s | 298.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2789,8 +2789,8 @@ threads=16 schedule=dynamic,64 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.1557 ms (  0.90 GFLOP/s  48.8 GB/s)
- -> time=0.1557 ms | 0.90 GFLOP/s | 48.8 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.0833 ms (  1.69 GFLOP/s  91.2 GB/s)
+ -> time=0.0833 ms | 1.69 GFLOP/s | 91.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2804,8 +2804,8 @@ threads=16 schedule=dynamic,256 partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.5800 ms (  0.24 GFLOP/s  13.1 GB/s)
- -> time=0.5800 ms | 0.24 GFLOP/s | 13.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.3054 ms (  0.46 GFLOP/s  24.9 GB/s)
+ -> time=0.3054 ms | 0.46 GFLOP/s | 24.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2819,8 +2819,8 @@ threads=16 schedule=guided partition=row
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.0436 ms (  3.22 GFLOP/s 174.0 GB/s)
- -> time=0.0436 ms | 3.22 GFLOP/s | 174.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.0266 ms (  5.28 GFLOP/s 285.5 GB/s)
+ -> time=0.0266 ms | 5.28 GFLOP/s | 285.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2834,8 +2834,8 @@ threads=16 schedule=static partition=nnz
 storage: CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99), padding 88.9%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.0425 ms (  3.30 GFLOP/s 178.5 GB/s)
- -> time=0.0425 ms | 3.30 GFLOP/s | 178.5 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.0396 ms (  3.54 GFLOP/s 191.5 GB/s)
+ -> time=0.0396 ms | 3.54 GFLOP/s | 191.5 GB/s | check=PASS
 
 
 
@@ -2854,8 +2854,8 @@ Reading sparse matrix from file (matrices/heart1.mtx): done
 file=matrices/heart1.mtx rows=3557 cols=3557 nonzeros=1387773
 storage: COO 16.65 MB, CSR 11.12 MB (CSR/COO = 0.668)
 	Performing 800 iterations
-	benchmarking CSR-SpMV:   1.2553 ms (  2.21 GFLOP/s  13.3 GB/s)
- -> time=1.2553 ms | 2.21 GFLOP/s | 13.3 GB/s | check=base
+	benchmarking CSR-SpMV:   0.6146 ms (  4.52 GFLOP/s  27.1 GB/s)
+ -> time=0.6146 ms | 4.52 GFLOP/s | 27.1 GB/s | check=base
 
 
 ==============================================================================
@@ -2867,11 +2867,11 @@ Reading sparse matrix from file (matrices/heart1.mtx): done
 file=matrices/heart1.mtx rows=3557 cols=3557 nonzeros=1387773 max_row_len=1120
 storage: COO 16.65 MB, CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87)
 padding: 2596067 of 3983840 slots are explicit zeros (65.2%)
-conversion: 4.3066 ms
+conversion: 1.4925 ms
 correctness vs CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking ELL-SpMV:   3.6967 ms (  0.75 GFLOP/s  12.9 GB/s)
- -> time=3.6967 ms | 0.75 GFLOP/s | 12.9 GB/s | check=PASS
+	benchmarking ELL-SpMV:   1.8703 ms (  1.48 GFLOP/s  25.6 GB/s)
+ -> time=1.8703 ms | 1.48 GFLOP/s | 25.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2885,8 +2885,8 @@ threads=1 schedule=static partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.2287 ms (  2.26 GFLOP/s  13.6 GB/s)
- -> time=1.2287 ms | 2.26 GFLOP/s | 13.6 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.6134 ms (  4.52 GFLOP/s  27.2 GB/s)
+ -> time=0.6134 ms | 4.52 GFLOP/s | 27.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2900,8 +2900,8 @@ threads=1 schedule=dynamic,16 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.2390 ms (  2.24 GFLOP/s  13.5 GB/s)
- -> time=1.2390 ms | 2.24 GFLOP/s | 13.5 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.6131 ms (  4.53 GFLOP/s  27.2 GB/s)
+ -> time=0.6131 ms | 4.53 GFLOP/s | 27.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2915,8 +2915,8 @@ threads=1 schedule=dynamic,64 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.2380 ms (  2.24 GFLOP/s  13.5 GB/s)
- -> time=1.2380 ms | 2.24 GFLOP/s | 13.5 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.6077 ms (  4.57 GFLOP/s  27.4 GB/s)
+ -> time=0.6077 ms | 4.57 GFLOP/s | 27.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2930,8 +2930,8 @@ threads=1 schedule=dynamic,256 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.2298 ms (  2.26 GFLOP/s  13.6 GB/s)
- -> time=1.2298 ms | 2.26 GFLOP/s | 13.6 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.6081 ms (  4.56 GFLOP/s  27.4 GB/s)
+ -> time=0.6081 ms | 4.56 GFLOP/s | 27.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2945,8 +2945,8 @@ threads=1 schedule=guided partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.2314 ms (  2.25 GFLOP/s  13.5 GB/s)
- -> time=1.2314 ms | 2.25 GFLOP/s | 13.5 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.6072 ms (  4.57 GFLOP/s  27.5 GB/s)
+ -> time=0.6072 ms | 4.57 GFLOP/s | 27.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2960,8 +2960,8 @@ threads=1 schedule=static partition=nnz
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   1.2381 ms (  2.24 GFLOP/s  13.5 GB/s)
- -> time=1.2381 ms | 2.24 GFLOP/s | 13.5 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.6057 ms (  4.58 GFLOP/s  27.5 GB/s)
+ -> time=0.6057 ms | 4.58 GFLOP/s | 27.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2975,8 +2975,8 @@ threads=2 schedule=static partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.6185 ms (  4.49 GFLOP/s  27.0 GB/s)
- -> time=0.6185 ms | 4.49 GFLOP/s | 27.0 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.3064 ms (  9.06 GFLOP/s  54.5 GB/s)
+ -> time=0.3064 ms | 9.06 GFLOP/s | 54.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -2990,8 +2990,8 @@ threads=2 schedule=dynamic,16 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.6393 ms (  4.34 GFLOP/s  26.1 GB/s)
- -> time=0.6393 ms | 4.34 GFLOP/s | 26.1 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.3257 ms (  8.52 GFLOP/s  51.2 GB/s)
+ -> time=0.3257 ms | 8.52 GFLOP/s | 51.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3005,8 +3005,8 @@ threads=2 schedule=dynamic,64 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.6270 ms (  4.43 GFLOP/s  26.6 GB/s)
- -> time=0.6270 ms | 4.43 GFLOP/s | 26.6 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.3136 ms (  8.85 GFLOP/s  53.2 GB/s)
+ -> time=0.3136 ms | 8.85 GFLOP/s | 53.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3020,8 +3020,8 @@ threads=2 schedule=dynamic,256 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.6315 ms (  4.39 GFLOP/s  26.4 GB/s)
- -> time=0.6315 ms | 4.39 GFLOP/s | 26.4 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.3152 ms (  8.81 GFLOP/s  52.9 GB/s)
+ -> time=0.3152 ms | 8.81 GFLOP/s | 52.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3035,8 +3035,8 @@ threads=2 schedule=guided partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.6203 ms (  4.47 GFLOP/s  26.9 GB/s)
- -> time=0.6203 ms | 4.47 GFLOP/s | 26.9 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.3062 ms (  9.06 GFLOP/s  54.5 GB/s)
+ -> time=0.3062 ms | 9.06 GFLOP/s | 54.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3050,8 +3050,8 @@ threads=2 schedule=static partition=nnz
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.6170 ms (  4.50 GFLOP/s  27.0 GB/s)
- -> time=0.6170 ms | 4.50 GFLOP/s | 27.0 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.3057 ms (  9.08 GFLOP/s  54.6 GB/s)
+ -> time=0.3057 ms | 9.08 GFLOP/s | 54.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3065,8 +3065,8 @@ threads=4 schedule=static partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.3270 ms (  8.49 GFLOP/s  51.0 GB/s)
- -> time=0.3270 ms | 8.49 GFLOP/s | 51.0 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.1631 ms ( 17.01 GFLOP/s 102.3 GB/s)
+ -> time=0.1631 ms | 17.01 GFLOP/s | 102.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3080,8 +3080,8 @@ threads=4 schedule=dynamic,16 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.3255 ms (  8.53 GFLOP/s  51.3 GB/s)
- -> time=0.3255 ms | 8.53 GFLOP/s | 51.3 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.1650 ms ( 16.82 GFLOP/s 101.1 GB/s)
+ -> time=0.1650 ms | 16.82 GFLOP/s | 101.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3095,8 +3095,8 @@ threads=4 schedule=dynamic,64 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.3273 ms (  8.48 GFLOP/s  51.0 GB/s)
- -> time=0.3273 ms | 8.48 GFLOP/s | 51.0 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.1625 ms ( 17.08 GFLOP/s 102.6 GB/s)
+ -> time=0.1625 ms | 17.08 GFLOP/s | 102.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3110,8 +3110,8 @@ threads=4 schedule=dynamic,256 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.3628 ms (  7.65 GFLOP/s  46.0 GB/s)
- -> time=0.3628 ms | 7.65 GFLOP/s | 46.0 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.1813 ms ( 15.31 GFLOP/s  92.0 GB/s)
+ -> time=0.1813 ms | 15.31 GFLOP/s | 92.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3125,8 +3125,8 @@ threads=4 schedule=guided partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.3141 ms (  8.84 GFLOP/s  53.1 GB/s)
- -> time=0.3141 ms | 8.84 GFLOP/s | 53.1 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.1555 ms ( 17.85 GFLOP/s 107.3 GB/s)
+ -> time=0.1555 ms | 17.85 GFLOP/s | 107.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3140,8 +3140,8 @@ threads=4 schedule=static partition=nnz
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.3119 ms (  8.90 GFLOP/s  53.5 GB/s)
- -> time=0.3119 ms | 8.90 GFLOP/s | 53.5 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.1548 ms ( 17.93 GFLOP/s 107.8 GB/s)
+ -> time=0.1548 ms | 17.93 GFLOP/s | 107.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3155,8 +3155,8 @@ threads=8 schedule=static partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.1946 ms ( 14.26 GFLOP/s  85.7 GB/s)
- -> time=0.1946 ms | 14.26 GFLOP/s | 85.7 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0987 ms ( 28.11 GFLOP/s 168.9 GB/s)
+ -> time=0.0987 ms | 28.11 GFLOP/s | 168.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3170,8 +3170,8 @@ threads=8 schedule=dynamic,16 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.1678 ms ( 16.54 GFLOP/s  99.4 GB/s)
- -> time=0.1678 ms | 16.54 GFLOP/s | 99.4 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0840 ms ( 33.02 GFLOP/s 198.5 GB/s)
+ -> time=0.0840 ms | 33.02 GFLOP/s | 198.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3185,8 +3185,8 @@ threads=8 schedule=dynamic,64 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.1741 ms ( 15.94 GFLOP/s  95.8 GB/s)
- -> time=0.1741 ms | 15.94 GFLOP/s | 95.8 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0873 ms ( 31.80 GFLOP/s 191.2 GB/s)
+ -> time=0.0873 ms | 31.80 GFLOP/s | 191.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3200,8 +3200,8 @@ threads=8 schedule=dynamic,256 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.2005 ms ( 13.84 GFLOP/s  83.2 GB/s)
- -> time=0.2005 ms | 13.84 GFLOP/s | 83.2 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.1011 ms ( 27.45 GFLOP/s 165.0 GB/s)
+ -> time=0.1011 ms | 27.45 GFLOP/s | 165.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3215,8 +3215,8 @@ threads=8 schedule=guided partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.1629 ms ( 17.03 GFLOP/s 102.4 GB/s)
- -> time=0.1629 ms | 17.03 GFLOP/s | 102.4 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0815 ms ( 34.07 GFLOP/s 204.8 GB/s)
+ -> time=0.0815 ms | 34.07 GFLOP/s | 204.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3230,8 +3230,8 @@ threads=8 schedule=static partition=nnz
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.1602 ms ( 17.32 GFLOP/s 104.1 GB/s)
- -> time=0.1602 ms | 17.32 GFLOP/s | 104.1 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0820 ms ( 33.85 GFLOP/s 203.4 GB/s)
+ -> time=0.0820 ms | 33.85 GFLOP/s | 203.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3245,8 +3245,8 @@ threads=16 schedule=static partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.1006 ms ( 27.60 GFLOP/s 165.9 GB/s)
- -> time=0.1006 ms | 27.60 GFLOP/s | 165.9 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0544 ms ( 50.98 GFLOP/s 306.4 GB/s)
+ -> time=0.0544 ms | 50.98 GFLOP/s | 306.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3260,8 +3260,8 @@ threads=16 schedule=dynamic,16 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0896 ms ( 30.98 GFLOP/s 186.2 GB/s)
- -> time=0.0896 ms | 30.98 GFLOP/s | 186.2 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0593 ms ( 46.82 GFLOP/s 281.4 GB/s)
+ -> time=0.0593 ms | 46.82 GFLOP/s | 281.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3275,8 +3275,8 @@ threads=16 schedule=dynamic,64 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.1045 ms ( 26.55 GFLOP/s 159.6 GB/s)
- -> time=0.1045 ms | 26.55 GFLOP/s | 159.6 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0590 ms ( 47.06 GFLOP/s 282.9 GB/s)
+ -> time=0.0590 ms | 47.06 GFLOP/s | 282.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3290,8 +3290,8 @@ threads=16 schedule=dynamic,256 partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.1139 ms ( 24.37 GFLOP/s 146.4 GB/s)
- -> time=0.1139 ms | 24.37 GFLOP/s | 146.4 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0621 ms ( 44.71 GFLOP/s 268.7 GB/s)
+ -> time=0.0621 ms | 44.71 GFLOP/s | 268.7 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3305,8 +3305,8 @@ threads=16 schedule=guided partition=row
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0912 ms ( 30.42 GFLOP/s 182.8 GB/s)
- -> time=0.0912 ms | 30.42 GFLOP/s | 182.8 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0531 ms ( 52.28 GFLOP/s 314.2 GB/s)
+ -> time=0.0531 ms | 52.28 GFLOP/s | 314.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3320,8 +3320,8 @@ threads=16 schedule=static partition=nnz
 storage: CSR 11.12 MB
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP CSR-SpMV:   0.0842 ms ( 32.95 GFLOP/s 198.1 GB/s)
- -> time=0.0842 ms | 32.95 GFLOP/s | 198.1 GB/s | check=PASS
+	benchmarking OpenMP CSR-SpMV:   0.0487 ms ( 56.99 GFLOP/s 342.5 GB/s)
+ -> time=0.0487 ms | 56.99 GFLOP/s | 342.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3334,9 +3334,9 @@ file=matrices/heart1.mtx rows=3557 cols=3557 nonzeros=1387773 max_row_len=1120
 threads=1 schedule=static partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 798 iterations
-	benchmarking OpenMP ELL-SpMV:   3.7046 ms (  0.75 GFLOP/s  12.9 GB/s)
- -> time=3.7046 ms | 0.75 GFLOP/s | 12.9 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   1.8650 ms (  1.49 GFLOP/s  25.6 GB/s)
+ -> time=1.8650 ms | 1.49 GFLOP/s | 25.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3350,8 +3350,8 @@ threads=1 schedule=dynamic,16 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   3.7151 ms (  0.75 GFLOP/s  12.9 GB/s)
- -> time=3.7151 ms | 0.75 GFLOP/s | 12.9 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   1.8720 ms (  1.48 GFLOP/s  25.5 GB/s)
+ -> time=1.8720 ms | 1.48 GFLOP/s | 25.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3364,9 +3364,9 @@ file=matrices/heart1.mtx rows=3557 cols=3557 nonzeros=1387773 max_row_len=1120
 threads=1 schedule=dynamic,64 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
-	Performing 797 iterations
-	benchmarking OpenMP ELL-SpMV:   3.6961 ms (  0.75 GFLOP/s  12.9 GB/s)
- -> time=3.6961 ms | 0.75 GFLOP/s | 12.9 GB/s | check=PASS
+	Performing 800 iterations
+	benchmarking OpenMP ELL-SpMV:   1.8849 ms (  1.47 GFLOP/s  25.4 GB/s)
+ -> time=1.8849 ms | 1.47 GFLOP/s | 25.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3380,8 +3380,8 @@ threads=1 schedule=dynamic,256 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   3.6935 ms (  0.75 GFLOP/s  12.9 GB/s)
- -> time=3.6935 ms | 0.75 GFLOP/s | 12.9 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   1.8762 ms (  1.48 GFLOP/s  25.5 GB/s)
+ -> time=1.8762 ms | 1.48 GFLOP/s | 25.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3395,8 +3395,8 @@ threads=1 schedule=guided partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   3.7030 ms (  0.75 GFLOP/s  12.9 GB/s)
- -> time=3.7030 ms | 0.75 GFLOP/s | 12.9 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   1.8715 ms (  1.48 GFLOP/s  25.6 GB/s)
+ -> time=1.8715 ms | 1.48 GFLOP/s | 25.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3410,8 +3410,8 @@ threads=1 schedule=static partition=nnz
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   3.7096 ms (  0.75 GFLOP/s  12.9 GB/s)
- -> time=3.7096 ms | 0.75 GFLOP/s | 12.9 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   1.8843 ms (  1.47 GFLOP/s  25.4 GB/s)
+ -> time=1.8843 ms | 1.47 GFLOP/s | 25.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3425,8 +3425,8 @@ threads=2 schedule=static partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.8201 ms (  1.52 GFLOP/s  26.3 GB/s)
- -> time=1.8201 ms | 1.52 GFLOP/s | 26.3 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.9402 ms (  2.95 GFLOP/s  50.9 GB/s)
+ -> time=0.9402 ms | 2.95 GFLOP/s | 50.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3440,8 +3440,8 @@ threads=2 schedule=dynamic,16 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.8589 ms (  1.49 GFLOP/s  25.7 GB/s)
- -> time=1.8589 ms | 1.49 GFLOP/s | 25.7 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.9594 ms (  2.89 GFLOP/s  49.8 GB/s)
+ -> time=0.9594 ms | 2.89 GFLOP/s | 49.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3455,8 +3455,8 @@ threads=2 schedule=dynamic,64 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.8651 ms (  1.49 GFLOP/s  25.6 GB/s)
- -> time=1.8651 ms | 1.49 GFLOP/s | 25.6 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.9493 ms (  2.92 GFLOP/s  50.4 GB/s)
+ -> time=0.9493 ms | 2.92 GFLOP/s | 50.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3470,8 +3470,8 @@ threads=2 schedule=dynamic,256 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.8494 ms (  1.50 GFLOP/s  25.9 GB/s)
- -> time=1.8494 ms | 1.50 GFLOP/s | 25.9 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.9419 ms (  2.95 GFLOP/s  50.8 GB/s)
+ -> time=0.9419 ms | 2.95 GFLOP/s | 50.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3485,8 +3485,8 @@ threads=2 schedule=guided partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.8747 ms (  1.48 GFLOP/s  25.5 GB/s)
- -> time=1.8747 ms | 1.48 GFLOP/s | 25.5 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.9397 ms (  2.95 GFLOP/s  50.9 GB/s)
+ -> time=0.9397 ms | 2.95 GFLOP/s | 50.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3500,8 +3500,8 @@ threads=2 schedule=static partition=nnz
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.8165 ms (  1.53 GFLOP/s  26.3 GB/s)
- -> time=1.8165 ms | 1.53 GFLOP/s | 26.3 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.9420 ms (  2.95 GFLOP/s  50.8 GB/s)
+ -> time=0.9420 ms | 2.95 GFLOP/s | 50.8 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3515,8 +3515,8 @@ threads=4 schedule=static partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.9061 ms (  3.06 GFLOP/s  52.8 GB/s)
- -> time=0.9061 ms | 3.06 GFLOP/s | 52.8 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.4713 ms (  5.89 GFLOP/s 101.5 GB/s)
+ -> time=0.4713 ms | 5.89 GFLOP/s | 101.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3530,8 +3530,8 @@ threads=4 schedule=dynamic,16 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.9410 ms (  2.95 GFLOP/s  50.8 GB/s)
- -> time=0.9410 ms | 2.95 GFLOP/s | 50.8 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.4818 ms (  5.76 GFLOP/s  99.3 GB/s)
+ -> time=0.4818 ms | 5.76 GFLOP/s | 99.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3545,8 +3545,8 @@ threads=4 schedule=dynamic,64 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.9392 ms (  2.96 GFLOP/s  50.9 GB/s)
- -> time=0.9392 ms | 2.96 GFLOP/s | 50.9 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.4763 ms (  5.83 GFLOP/s 100.4 GB/s)
+ -> time=0.4763 ms | 5.83 GFLOP/s | 100.4 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3560,8 +3560,8 @@ threads=4 schedule=dynamic,256 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   1.0567 ms (  2.63 GFLOP/s  45.3 GB/s)
- -> time=1.0567 ms | 2.63 GFLOP/s | 45.3 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.5398 ms (  5.14 GFLOP/s  88.6 GB/s)
+ -> time=0.5398 ms | 5.14 GFLOP/s | 88.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3575,8 +3575,8 @@ threads=4 schedule=guided partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.9353 ms (  2.97 GFLOP/s  51.1 GB/s)
- -> time=0.9353 ms | 2.97 GFLOP/s | 51.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.4726 ms (  5.87 GFLOP/s 101.2 GB/s)
+ -> time=0.4726 ms | 5.87 GFLOP/s | 101.2 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3590,8 +3590,8 @@ threads=4 schedule=static partition=nnz
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.9047 ms (  3.07 GFLOP/s  52.9 GB/s)
- -> time=0.9047 ms | 3.07 GFLOP/s | 52.9 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.5004 ms (  5.55 GFLOP/s  95.6 GB/s)
+ -> time=0.5004 ms | 5.55 GFLOP/s | 95.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3605,8 +3605,8 @@ threads=8 schedule=static partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.4567 ms (  6.08 GFLOP/s 104.7 GB/s)
- -> time=0.4567 ms | 6.08 GFLOP/s | 104.7 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.2385 ms ( 11.64 GFLOP/s 200.5 GB/s)
+ -> time=0.2385 ms | 11.64 GFLOP/s | 200.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3620,8 +3620,8 @@ threads=8 schedule=dynamic,16 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.4990 ms (  5.56 GFLOP/s  95.8 GB/s)
- -> time=0.4990 ms | 5.56 GFLOP/s | 95.8 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.2445 ms ( 11.35 GFLOP/s 195.6 GB/s)
+ -> time=0.2445 ms | 11.35 GFLOP/s | 195.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3635,8 +3635,8 @@ threads=8 schedule=dynamic,64 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.5188 ms (  5.35 GFLOP/s  92.2 GB/s)
- -> time=0.5188 ms | 5.35 GFLOP/s | 92.2 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.2415 ms ( 11.49 GFLOP/s 198.0 GB/s)
+ -> time=0.2415 ms | 11.49 GFLOP/s | 198.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3650,8 +3650,8 @@ threads=8 schedule=dynamic,256 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.5821 ms (  4.77 GFLOP/s  82.1 GB/s)
- -> time=0.5821 ms | 4.77 GFLOP/s | 82.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.2741 ms ( 10.13 GFLOP/s 174.5 GB/s)
+ -> time=0.2741 ms | 10.13 GFLOP/s | 174.5 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3665,8 +3665,8 @@ threads=8 schedule=guided partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.5503 ms (  5.04 GFLOP/s  86.9 GB/s)
- -> time=0.5503 ms | 5.04 GFLOP/s | 86.9 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.2392 ms ( 11.61 GFLOP/s 199.9 GB/s)
+ -> time=0.2392 ms | 11.61 GFLOP/s | 199.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3680,8 +3680,8 @@ threads=8 schedule=static partition=nnz
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.4566 ms (  6.08 GFLOP/s 104.7 GB/s)
- -> time=0.4566 ms | 6.08 GFLOP/s | 104.7 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.2700 ms ( 10.28 GFLOP/s 177.1 GB/s)
+ -> time=0.2700 ms | 10.28 GFLOP/s | 177.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3695,8 +3695,8 @@ threads=16 schedule=static partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.2322 ms ( 11.95 GFLOP/s 205.9 GB/s)
- -> time=0.2322 ms | 11.95 GFLOP/s | 205.9 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.1419 ms ( 19.56 GFLOP/s 337.1 GB/s)
+ -> time=0.1419 ms | 19.56 GFLOP/s | 337.1 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3710,8 +3710,8 @@ threads=16 schedule=dynamic,16 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.4733 ms (  5.86 GFLOP/s 101.0 GB/s)
- -> time=0.4733 ms | 5.86 GFLOP/s | 101.0 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.1422 ms ( 19.52 GFLOP/s 336.3 GB/s)
+ -> time=0.1422 ms | 19.52 GFLOP/s | 336.3 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3725,8 +3725,8 @@ threads=16 schedule=dynamic,64 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.4311 ms (  6.44 GFLOP/s 110.9 GB/s)
- -> time=0.4311 ms | 6.44 GFLOP/s | 110.9 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.1530 ms ( 18.14 GFLOP/s 312.6 GB/s)
+ -> time=0.1530 ms | 18.14 GFLOP/s | 312.6 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3740,8 +3740,8 @@ threads=16 schedule=dynamic,256 partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.3807 ms (  7.29 GFLOP/s 125.6 GB/s)
- -> time=0.3807 ms | 7.29 GFLOP/s | 125.6 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.1595 ms ( 17.41 GFLOP/s 299.9 GB/s)
+ -> time=0.1595 ms | 17.41 GFLOP/s | 299.9 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3755,8 +3755,8 @@ threads=16 schedule=guided partition=row
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.3793 ms (  7.32 GFLOP/s 126.1 GB/s)
- -> time=0.3793 ms | 7.32 GFLOP/s | 126.1 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.1394 ms ( 19.91 GFLOP/s 343.0 GB/s)
+ -> time=0.1394 ms | 19.91 GFLOP/s | 343.0 GB/s | check=PASS
 
 
 ==============================================================================
@@ -3770,14 +3770,14 @@ threads=16 schedule=static partition=nnz
 storage: CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87), padding 65.2%
 correctness vs sequential CSR: PASS (relative L2 error 0.000e+00)
 	Performing 800 iterations
-	benchmarking OpenMP ELL-SpMV:   0.2326 ms ( 11.93 GFLOP/s 205.6 GB/s)
- -> time=0.2326 ms | 11.93 GFLOP/s | 205.6 GB/s | check=PASS
+	benchmarking OpenMP ELL-SpMV:   0.1913 ms ( 14.51 GFLOP/s 250.0 GB/s)
+ -> time=0.1913 ms | 14.51 GFLOP/s | 250.0 GB/s | check=PASS
 
 
 ##############################################################################
 #  SUMMARY   (matrices: ecology2 atmosmodd lp_wood1p heart1 )
 ##############################################################################
-  cores available at run time: 32   (thread counts above this are oversubscribed -> treat with care)
+  cores available at run time: 16   (thread counts above this are oversubscribed -> treat with care)
 
 
 ==============================================================================
@@ -3818,10 +3818,10 @@ heart1          3557      3557    1387773  390.15   1120     2.87     11116416  
  [1] WINNER PER MATRIX  (best OpenMP config at 8 threads vs sequential)  -- report 2d
 ==============================================================================
 matrix      csr-seq ms  ell-seq ms |  best csr-omp (sched/part)     |  best ell-omp (sched/part)     | winner   margin
-ecology2        4.6951      3.8564 |        0.5897 static/row       |        0.4623 nnz              | ELL       1.28x
-atmosmodd       7.5155      6.1404 |        1.7938 static/row       |        1.6182 nnz              | ELL       1.11x
-lp_wood1p       0.0637      0.5755 |        0.0119 nnz              |        0.0779 nnz              | CSR       6.55x
-heart1          1.2553      3.6967 |        0.1602 nnz              |        0.4566 nnz              | CSR       2.85x
+ecology2        2.2796      1.9186 |        0.3232 static/row       |        0.2618 static/row       | ELL       1.23x
+atmosmodd       3.5380      3.1856 |        0.5318 static/row       |        0.4560 static/row       | ELL       1.17x
+lp_wood1p       0.0327      0.3016 |        0.0073 nnz              |        0.0416 static/row       | CSR       5.70x
+heart1          0.6146      1.8703 |        0.0815 guided/row       |        0.2385 static/row       | CSR       2.93x
 
 
 ==============================================================================
@@ -3829,10 +3829,10 @@ heart1          1.2553      3.6967 |        0.1602 nnz              |        0.4
      NOTE: for ELL the GB/s figure includes padding traffic; GFLOP/s counts only useful flops.
 ==============================================================================
 matrix     | csr-seq GF/s  GB/s  | ell-seq GF/s  GB/s  | csr-omp GF/s  GB/s  | ell-omp GF/s  GB/s 
-ecology2   |      2.13      14.5 |      2.59      16.6 |     16.94     115.2 |     21.61     138.4
-atmosmodd  |      2.35      15.4 |      2.87      18.2 |      9.83      64.6 |     10.89      69.1
-lp_wood1p  |      2.20      13.3 |      0.24      13.2 |     11.82      71.1 |      1.80      97.5
-heart1     |      2.21      13.3 |      0.75      12.9 |     17.32     104.1 |      6.08     104.7
+ecology2   |      4.38      29.8 |      5.21      33.4 |     30.92     210.3 |     38.17     244.5
+atmosmodd  |      4.98      32.8 |      5.53      35.1 |     33.15     218.0 |     38.66     245.2
+lp_wood1p  |      4.30      25.8 |      0.47      25.2 |     19.29     116.0 |      3.37     182.4
+heart1     |      4.52      27.1 |      1.48      25.6 |     34.07     204.8 |     11.64     200.5
 
 
 ==============================================================================
@@ -3842,75 +3842,75 @@ heart1     |      2.21      13.3 |      0.75      12.9 |     17.32     104.1 |  
 
  -- ecology2 / csr-omp
     partition / schedule       time ms (vs static/row)
-    row / static                       0.5897 (1.00x)
-    row / dynamic,16                   7.0426 (0.08x)
-    row / dynamic,64                   2.4165 (0.24x)
-    row / dynamic,256                  1.6868 (0.35x)
-    row / guided                       1.2522 (0.47x)
-    nnz / (any schedule)               1.1541 (0.51x)
+    row / static                       0.3232 (1.00x)
+    row / dynamic,16                   2.5291 (0.13x)
+    row / dynamic,64                   1.0673 (0.30x)
+    row / dynamic,256                  0.5912 (0.55x)
+    row / guided                       0.3385 (0.95x)
+    nnz / (any schedule)               0.7420 (0.44x)
 
  -- ecology2 / ell-omp
     partition / schedule       time ms (vs static/row)
-    row / static                       0.4633 (1.00x)
-    row / dynamic,16                   7.9786 (0.06x)
-    row / dynamic,64                   2.1233 (0.22x)
-    row / dynamic,256                  1.5335 (0.30x)
-    row / guided                       1.1239 (0.41x)
-    nnz / (any schedule)               0.4623 (1.00x)
+    row / static                       0.2618 (1.00x)
+    row / dynamic,16                   2.5324 (0.10x)
+    row / dynamic,64                   0.9144 (0.29x)
+    row / dynamic,256                  0.5147 (0.51x)
+    row / guided                       0.2658 (0.98x)
+    nnz / (any schedule)               0.7146 (0.37x)
 
  -- atmosmodd / csr-omp
     partition / schedule       time ms (vs static/row)
-    row / static                       1.7938 (1.00x)
-    row / dynamic,16                  11.1876 (0.16x)
-    row / dynamic,64                   5.0233 (0.36x)
-    row / dynamic,256                  3.3350 (0.54x)
-    row / guided                       2.7337 (0.66x)
-    nnz / (any schedule)               2.2619 (0.79x)
+    row / static                       0.5318 (1.00x)
+    row / dynamic,16                   6.0325 (0.09x)
+    row / dynamic,64                   2.1040 (0.25x)
+    row / dynamic,256                  0.9117 (0.58x)
+    row / guided                       0.5340 (1.00x)
+    nnz / (any schedule)               1.1160 (0.48x)
 
  -- atmosmodd / ell-omp
     partition / schedule       time ms (vs static/row)
-    row / static                       1.6493 (1.00x)
-    row / dynamic,16                  10.9057 (0.15x)
-    row / dynamic,64                   5.0091 (0.33x)
-    row / dynamic,256                  3.3415 (0.49x)
-    row / guided                       2.3812 (0.69x)
-    nnz / (any schedule)               1.6182 (1.02x)
+    row / static                       0.4560 (1.00x)
+    row / dynamic,16                   5.1971 (0.09x)
+    row / dynamic,64                   1.7651 (0.26x)
+    row / dynamic,256                  0.8112 (0.56x)
+    row / guided                       0.4739 (0.96x)
+    nnz / (any schedule)               1.0248 (0.44x)
 
  -- lp_wood1p / csr-omp
     partition / schedule       time ms (vs static/row)
-    row / static                       0.0225 (1.00x)
-    row / dynamic,16                   0.0164 (1.37x)
-    row / dynamic,64                   0.0308 (0.73x)
-    row / dynamic,256                  0.0659 (0.34x)
-    row / guided                       0.0144 (1.56x)
-    nnz / (any schedule)               0.0119 (1.89x)
+    row / static                       0.0118 (1.00x)
+    row / dynamic,16                   0.0085 (1.39x)
+    row / dynamic,64                   0.0156 (0.76x)
+    row / dynamic,256                  0.0347 (0.34x)
+    row / guided                       0.0075 (1.57x)
+    nnz / (any schedule)               0.0073 (1.62x)
 
  -- lp_wood1p / ell-omp
     partition / schedule       time ms (vs static/row)
-    row / static                       0.0785 (1.00x)
-    row / dynamic,16                   0.0816 (0.96x)
-    row / dynamic,64                   0.1556 (0.50x)
-    row / dynamic,256                  0.5799 (0.14x)
-    row / guided                       0.0792 (0.99x)
-    nnz / (any schedule)               0.0779 (1.01x)
+    row / static                       0.0416 (1.00x)
+    row / dynamic,16                   0.0434 (0.96x)
+    row / dynamic,64                   0.0814 (0.51x)
+    row / dynamic,256                  0.3039 (0.14x)
+    row / guided                       0.0422 (0.99x)
+    nnz / (any schedule)               0.0652 (0.64x)
 
  -- heart1 / csr-omp
     partition / schedule       time ms (vs static/row)
-    row / static                       0.1946 (1.00x)
-    row / dynamic,16                   0.1678 (1.16x)
-    row / dynamic,64                   0.1741 (1.12x)
-    row / dynamic,256                  0.2005 (0.97x)
-    row / guided                       0.1629 (1.19x)
-    nnz / (any schedule)               0.1602 (1.21x)
+    row / static                       0.0987 (1.00x)
+    row / dynamic,16                   0.0840 (1.17x)
+    row / dynamic,64                   0.0873 (1.13x)
+    row / dynamic,256                  0.1011 (0.98x)
+    row / guided                       0.0815 (1.21x)
+    nnz / (any schedule)               0.0820 (1.20x)
 
  -- heart1 / ell-omp
     partition / schedule       time ms (vs static/row)
-    row / static                       0.4567 (1.00x)
-    row / dynamic,16                   0.4990 (0.92x)
-    row / dynamic,64                   0.5188 (0.88x)
-    row / dynamic,256                  0.5821 (0.78x)
-    row / guided                       0.5503 (0.83x)
-    nnz / (any schedule)               0.4566 (1.00x)
+    row / static                       0.2385 (1.00x)
+    row / dynamic,16                   0.2445 (0.98x)
+    row / dynamic,64                   0.2415 (0.99x)
+    row / dynamic,256                  0.2741 (0.87x)
+    row / guided                       0.2392 (1.00x)
+    nnz / (any schedule)               0.2700 (0.88x)
 
 
 ==============================================================================
@@ -3919,75 +3919,75 @@ heart1     |      2.21      13.3 |      0.75      12.9 |     17.32     104.1 |  
 
  -- ecology2 / csr-omp
     schedule       part            t=1           t=2           t=4           t=8          t=16
-    static         row       1.00/100%      1.95/98%     4.03/101%     7.97/100%     15.72/98%
-    dynamic,16     row       1.00/100%      0.73/36%      0.41/10%       0.74/9%       1.28/8%
-    dynamic,64     row       1.00/100%      0.73/37%      0.98/25%      2.03/25%      2.98/19%
-    dynamic,256    row       1.00/100%      1.15/57%      1.67/42%      2.86/36%      3.25/20%
-    guided         row       1.00/100%      1.96/98%      3.16/79%      3.77/47%      4.04/25%
-    (any)          nnz       1.00/100%      1.75/87%      2.96/74%      4.36/55%      3.17/20%
+    static         row       1.00/100%     2.05/102%     4.03/101%      7.77/97%     11.94/75%
+    dynamic,16     row       1.00/100%      0.29/15%      0.52/13%      1.07/13%      1.60/10%
+    dynamic,64     row       1.00/100%      0.81/40%      1.28/32%      2.49/31%      4.07/25%
+    dynamic,256    row       1.00/100%      1.14/57%      2.36/59%      4.39/55%      7.12/44%
+    guided         row       1.00/100%     2.13/106%     4.06/102%      7.45/93%     10.18/64%
+    (any)          nnz       1.00/100%      1.72/86%      2.58/65%      3.42/43%      3.81/24%
 
  -- ecology2 / ell-omp
     schedule       part            t=1           t=2           t=4           t=8          t=16
-    static         row       1.00/100%      1.97/98%     4.11/103%     8.12/101%     15.59/97%
-    dynamic,16     row       1.00/100%      0.53/27%      0.38/10%       0.53/7%       1.06/7%
-    dynamic,64     row       1.00/100%      0.66/33%      0.91/23%      1.88/23%      2.93/18%
-    dynamic,256    row       1.00/100%      1.05/53%      1.64/41%      2.48/31%      2.83/18%
-    guided         row       1.00/100%      1.87/94%      2.80/70%      3.34/42%      4.10/26%
-    (any)          nnz       1.00/100%      1.95/98%     4.10/103%     8.11/101%     15.82/99%
+    static         row       1.00/100%     2.08/104%     4.02/101%      7.84/98%     12.20/76%
+    dynamic,16     row       1.00/100%      0.23/12%      0.40/10%      0.85/11%       1.26/8%
+    dynamic,64     row       1.00/100%      0.67/33%      1.15/29%      2.27/28%      3.76/23%
+    dynamic,256    row       1.00/100%      1.04/52%      2.18/54%      4.07/51%      6.73/42%
+    guided         row       1.00/100%     2.05/103%     4.04/101%      7.62/95%      9.39/59%
+    (any)          nnz       1.00/100%      1.66/83%      2.45/61%      3.20/40%      3.68/23%
 
  -- atmosmodd / csr-omp
     schedule       part            t=1           t=2           t=4           t=8          t=16
-    static         row       1.00/100%      1.95/97%      2.63/66%      4.21/53%      8.50/53%
-    dynamic,16     row       1.00/100%      0.77/38%      0.76/19%       0.73/9%       1.27/8%
-    dynamic,64     row       1.00/100%      0.81/40%      1.25/31%      1.55/19%      2.45/15%
-    dynamic,256    row       1.00/100%      1.15/58%      1.86/47%      2.30/29%      1.97/12%
-    guided         row       1.00/100%      1.96/98%      2.69/67%      2.79/35%      4.09/26%
-    (any)          nnz       1.00/100%      1.74/87%      2.44/61%      3.53/44%      3.86/24%
+    static         row       1.00/100%      1.93/96%      3.63/91%      6.75/84%      9.74/61%
+    dynamic,16     row       1.00/100%      0.31/16%      0.42/11%       0.67/8%       1.23/8%
+    dynamic,64     row       1.00/100%      0.68/34%      1.08/27%      1.85/23%      3.01/19%
+    dynamic,256    row       1.00/100%      1.18/59%      2.39/60%      4.33/54%      6.58/41%
+    guided         row       1.00/100%      1.89/95%      3.66/92%      6.71/84%      8.18/51%
+    (any)          nnz       1.00/100%      1.69/84%      2.63/66%      3.46/43%      4.12/26%
 
  -- atmosmodd / ell-omp
     schedule       part            t=1           t=2           t=4           t=8          t=16
-    static         row       1.00/100%      1.96/98%      2.39/60%      3.89/49%      8.32/52%
-    dynamic,16     row       1.00/100%      0.60/30%      0.59/15%       0.64/8%       1.14/7%
-    dynamic,64     row       1.00/100%      0.67/34%      1.05/26%      1.30/16%      2.23/14%
-    dynamic,256    row       1.00/100%      1.06/53%      1.75/44%      1.92/24%      2.55/16%
-    guided         row       1.00/100%      1.96/98%      2.41/60%      2.71/34%      3.50/22%
-    (any)          nnz       1.00/100%      1.95/97%      2.29/57%      3.94/49%      8.16/51%
+    static         row       1.00/100%      1.95/97%      3.64/91%      6.83/85%     10.08/63%
+    dynamic,16     row       1.00/100%      0.27/13%      0.39/10%       0.66/8%       1.23/8%
+    dynamic,64     row       1.00/100%      0.68/34%      1.14/29%      1.81/23%      2.87/18%
+    dynamic,256    row       1.00/100%      1.08/54%      2.23/56%      3.95/49%      6.30/39%
+    guided         row       1.00/100%      1.82/91%      3.67/92%      6.51/81%      7.90/49%
+    (any)          nnz       1.00/100%      1.63/81%      2.45/61%      3.41/43%      3.84/24%
 
  -- lp_wood1p / csr-omp
     schedule       part            t=1           t=2           t=4           t=8          t=16
-    static         row       1.00/100%      1.44/72%      2.00/50%      2.82/35%      3.97/25%
-    dynamic,16     row       1.00/100%      1.75/87%      2.90/72%      3.88/49%      4.58/29%
-    dynamic,64     row       1.00/100%      1.59/80%      2.18/54%      2.11/26%      2.03/13%
-    dynamic,256    row       1.00/100%      0.98/49%      0.97/24%      0.96/12%       0.95/6%
-    guided         row       1.00/100%      1.81/91%      3.19/80%      4.40/55%      4.66/29%
-    (any)          nnz       1.00/100%      1.88/94%      3.34/83%      5.33/67%      6.67/42%
+    static         row       1.00/100%      1.44/72%      1.93/48%      2.75/34%      3.61/23%
+    dynamic,16     row       1.00/100%      1.69/84%      2.74/69%      3.87/48%      4.22/26%
+    dynamic,64     row       1.00/100%      1.54/77%      2.07/52%      2.10/26%      1.93/12%
+    dynamic,256    row       1.00/100%      0.97/49%      0.97/24%      0.94/12%       0.94/6%
+    guided         row       1.00/100%      1.79/89%      3.11/78%      4.36/55%      4.30/27%
+    (any)          nnz       1.00/100%      1.78/89%      3.00/75%      4.44/55%      6.35/40%
 
  -- lp_wood1p / ell-omp
     schedule       part            t=1           t=2           t=4           t=8          t=16
-    static         row       1.00/100%      1.98/99%      3.89/97%      7.33/92%     13.45/84%
-    dynamic,16     row       1.00/100%      1.91/96%      3.75/94%      7.16/89%     13.31/83%
-    dynamic,64     row       1.00/100%      1.89/95%      3.74/93%      3.70/46%      3.70/23%
-    dynamic,256    row       1.00/100%      0.99/49%      1.00/25%      0.99/12%       0.99/6%
-    guided         row       1.00/100%      1.98/99%      3.86/97%      7.27/91%     13.21/83%
-    (any)          nnz       1.00/100%     2.01/100%      3.92/98%      7.46/93%     13.68/86%
+    static         row       1.00/100%      1.99/99%      3.88/97%      7.31/91%     12.16/76%
+    dynamic,16     row       1.00/100%      1.89/94%      3.70/92%      7.01/88%     11.94/75%
+    dynamic,64     row       1.00/100%      1.90/95%      3.69/92%      3.74/47%      3.65/23%
+    dynamic,256    row       1.00/100%      1.00/50%      1.00/25%      0.99/12%       0.99/6%
+    guided         row       1.00/100%      1.97/98%      3.82/96%      7.16/89%     11.36/71%
+    (any)          nnz       1.00/100%      1.36/68%      2.70/67%      4.65/58%      7.66/48%
 
  -- heart1 / csr-omp
     schedule       part            t=1           t=2           t=4           t=8          t=16
-    static         row       1.00/100%      1.99/99%      3.76/94%      6.31/79%     12.21/76%
-    dynamic,16     row       1.00/100%      1.94/97%      3.81/95%      7.38/92%     13.83/86%
-    dynamic,64     row       1.00/100%      1.97/99%      3.78/95%      7.11/89%     11.85/74%
-    dynamic,256    row       1.00/100%      1.95/97%      3.39/85%      6.13/77%     10.80/67%
-    guided         row       1.00/100%      1.99/99%      3.92/98%      7.56/94%     13.50/84%
-    (any)          nnz       1.00/100%     2.01/100%      3.97/99%      7.73/97%     14.70/92%
+    static         row       1.00/100%     2.00/100%      3.76/94%      6.21/78%     11.28/70%
+    dynamic,16     row       1.00/100%      1.88/94%      3.72/93%      7.30/91%     10.34/65%
+    dynamic,64     row       1.00/100%      1.94/97%      3.74/93%      6.96/87%     10.30/64%
+    dynamic,256    row       1.00/100%      1.93/96%      3.35/84%      6.01/75%      9.79/61%
+    guided         row       1.00/100%      1.98/99%      3.90/98%      7.45/93%     11.44/71%
+    (any)          nnz       1.00/100%      1.98/99%      3.91/98%      7.39/92%     12.44/78%
 
  -- heart1 / ell-omp
     schedule       part            t=1           t=2           t=4           t=8          t=16
-    static         row       1.00/100%     2.04/102%     4.09/102%     8.11/101%    15.95/100%
-    dynamic,16     row       1.00/100%     2.00/100%      3.95/99%      7.45/93%      7.85/49%
-    dynamic,64     row       1.00/100%      1.98/99%      3.94/98%      7.12/89%      8.57/54%
-    dynamic,256    row       1.00/100%     2.00/100%      3.50/87%      6.35/79%      9.70/61%
-    guided         row       1.00/100%      1.98/99%      3.96/99%      6.73/84%      9.76/61%
-    (any)          nnz       1.00/100%     2.04/102%     4.10/103%     8.12/102%    15.95/100%
+    static         row       1.00/100%      1.98/99%      3.96/99%      7.82/98%     13.14/82%
+    dynamic,16     row       1.00/100%      1.95/98%      3.89/97%      7.66/96%     13.16/82%
+    dynamic,64     row       1.00/100%      1.99/99%      3.96/99%      7.80/98%     12.32/77%
+    dynamic,256    row       1.00/100%     1.99/100%      3.48/87%      6.84/86%     11.76/74%
+    guided         row       1.00/100%     1.99/100%      3.96/99%      7.82/98%     13.43/84%
+    (any)          nnz       1.00/100%     2.00/100%      3.77/94%      6.98/87%      9.85/62%
 
 
 ==============================================================================
