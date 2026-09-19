@@ -1,0 +1,3 @@
+file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_len=7
+storage: COO 105.78 MB, CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94)
+padding: 78144 of 8893024 slots are explicit zeros (0.9%)

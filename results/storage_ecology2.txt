@@ -1,0 +1,3 @@
+file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991 max_row_len=5
+storage: COO 59.95 MB, CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91)
+padding: 4004 of 4999995 slots are explicit zeros (0.1%)

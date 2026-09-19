@@ -1,0 +1,228 @@
+
+
+##############################################################################
+#  SUMMARY   (matrices: ecology2 atmosmodd lp_wood1p heart1 )
+##############################################################################
+  cores available at run time: 32   (thread counts above this are oversubscribed -> treat with care)
+
+
+==============================================================================
+ PREDICT STEP: row-length statistics, format footprint, modelled imbalance
+ (computed directly from the .mtx files; symmetric files are expanded;
+  4-byte values + 4-byte indices;  imbalance model uses T=8 threads)
+==============================================================================
+matrix             m         n        nnz     avg      K    K/avg    CSR_bytes    ELL_bytes  ELL/CSR     pad%    rowImb    nnzImb  predict
+ecology2      999999    999999    4995991    5.00      5     1.00     43967928     39999960     0.91     0.1%     1.000     1.000  ELL
+atmosmodd    1270432   1270432    8814880    6.94      7     1.01     75600772     71144192     0.94     0.9%     1.005     1.000  ELL
+lp_wood1p        244      2595      70216  287.77   2592     9.01       562708      5059584     8.99    88.9%     2.220     1.051  CSR
+heart1          3557      3557    1387773  390.15   1120     2.87     11116416     31870720     2.87    65.2%     1.230     1.002  CSR
+
+ rowImb = max/avg nnz per thread under schedule(static), row-based split (1.00 = perfect)
+ nnzImb = same under an nnz-balanced contiguous split (model)
+ predict: ELL if K/avg <= 1.5 else CSR (simple heuristic -- justify/refine in the report)
+
+ Program-reported storage (from the sequential ELL run, to cross-check the table above):
+   --- atmosmodd
+   file=matrices/atmosmodd.mtx rows=1270432 cols=1270432 nonzeros=8814880 max_row_len=7
+   storage: COO 105.78 MB, CSR 75.60 MB, ELL 71.14 MB (ELL/CSR = 0.94)
+   padding: 78144 of 8893024 slots are explicit zeros (0.9%)
+   --- ecology2
+   file=matrices/ecology2.mtx rows=999999 cols=999999 nonzeros=4995991 max_row_len=5
+   storage: COO 59.95 MB, CSR 43.97 MB, ELL 40.00 MB (ELL/CSR = 0.91)
+   padding: 4004 of 4999995 slots are explicit zeros (0.1%)
+   --- heart1
+   file=matrices/heart1.mtx rows=3557 cols=3557 nonzeros=1387773 max_row_len=1120
+   storage: COO 16.65 MB, CSR 11.12 MB, ELL 31.87 MB (ELL/CSR = 2.87)
+   padding: 2596067 of 3983840 slots are explicit zeros (65.2%)
+   --- lp_wood1p
+   file=matrices/lp_wood1p.mtx rows=244 cols=2595 nonzeros=70216 max_row_len=2592
+   storage: COO 0.84 MB, CSR 0.56 MB, ELL 5.06 MB (ELL/CSR = 8.99)
+   padding: 562232 of 632448 slots are explicit zeros (88.9%)
+
+
+==============================================================================
+ [1] WINNER PER MATRIX  (best OpenMP config at 8 threads vs sequential)  -- report 2d
+==============================================================================
+matrix      csr-seq ms  ell-seq ms |  best csr-omp (sched/part)     |  best ell-omp (sched/part)     | winner   margin
+ecology2        4.6951      3.8564 |        0.5897 static/row       |        0.4623 nnz              | ELL       1.28x
+atmosmodd       7.5155      6.1404 |        1.7938 static/row       |        1.6182 nnz              | ELL       1.11x
+lp_wood1p       0.0637      0.5755 |        0.0119 nnz              |        0.0779 nnz              | CSR       6.55x
+heart1          1.2553      3.6967 |        0.1602 nnz              |        0.4566 nnz              | CSR       2.85x
+
+
+==============================================================================
+ [2] THROUGHPUT of the best configs at 8 threads  -- report 2e(b)
+     NOTE: for ELL the GB/s figure includes padding traffic; GFLOP/s counts only useful flops.
+==============================================================================
+matrix     | csr-seq GF/s  GB/s  | ell-seq GF/s  GB/s  | csr-omp GF/s  GB/s  | ell-omp GF/s  GB/s 
+ecology2   |      2.13      14.5 |      2.59      16.6 |     16.94     115.2 |     21.61     138.4
+atmosmodd  |      2.35      15.4 |      2.87      18.2 |      9.83      64.6 |     10.89      69.1
+lp_wood1p  |      2.20      13.3 |      0.24      13.2 |     11.82      71.1 |      1.80      97.5
+heart1     |      2.21      13.3 |      0.75      12.9 |     17.32     104.1 |      6.08     104.7
+
+
+==============================================================================
+ [3] LOAD BALANCING at 8 threads: row vs nnz partition x schedule -- report 2c
+     nnz partitioning is schedule-independent, so it is a single row per kernel
+==============================================================================
+
+ -- ecology2 / csr-omp
+    partition / schedule       time ms (vs static/row)
+    row / static                       0.5897 (1.00x)
+    row / dynamic,16                   7.0426 (0.08x)
+    row / dynamic,64                   2.4165 (0.24x)
+    row / dynamic,256                  1.6868 (0.35x)
+    row / guided                       1.2522 (0.47x)
+    nnz / (any schedule)               1.1541 (0.51x)
+
+ -- ecology2 / ell-omp
+    partition / schedule       time ms (vs static/row)
+    row / static                       0.4633 (1.00x)
+    row / dynamic,16                   7.9786 (0.06x)
+    row / dynamic,64                   2.1233 (0.22x)
+    row / dynamic,256                  1.5335 (0.30x)
+    row / guided                       1.1239 (0.41x)
+    nnz / (any schedule)               0.4623 (1.00x)
+
+ -- atmosmodd / csr-omp
+    partition / schedule       time ms (vs static/row)
+    row / static                       1.7938 (1.00x)
+    row / dynamic,16                  11.1876 (0.16x)
+    row / dynamic,64                   5.0233 (0.36x)
+    row / dynamic,256                  3.3350 (0.54x)
+    row / guided                       2.7337 (0.66x)
+    nnz / (any schedule)               2.2619 (0.79x)
+
+ -- atmosmodd / ell-omp
+    partition / schedule       time ms (vs static/row)
+    row / static                       1.6493 (1.00x)
+    row / dynamic,16                  10.9057 (0.15x)
+    row / dynamic,64                   5.0091 (0.33x)
+    row / dynamic,256                  3.3415 (0.49x)
+    row / guided                       2.3812 (0.69x)
+    nnz / (any schedule)               1.6182 (1.02x)
+
+ -- lp_wood1p / csr-omp
+    partition / schedule       time ms (vs static/row)
+    row / static                       0.0225 (1.00x)
+    row / dynamic,16                   0.0164 (1.37x)
+    row / dynamic,64                   0.0308 (0.73x)
+    row / dynamic,256                  0.0659 (0.34x)
+    row / guided                       0.0144 (1.56x)
+    nnz / (any schedule)               0.0119 (1.89x)
+
+ -- lp_wood1p / ell-omp
+    partition / schedule       time ms (vs static/row)
+    row / static                       0.0785 (1.00x)
+    row / dynamic,16                   0.0816 (0.96x)
+    row / dynamic,64                   0.1556 (0.50x)
+    row / dynamic,256                  0.5799 (0.14x)
+    row / guided                       0.0792 (0.99x)
+    nnz / (any schedule)               0.0779 (1.01x)
+
+ -- heart1 / csr-omp
+    partition / schedule       time ms (vs static/row)
+    row / static                       0.1946 (1.00x)
+    row / dynamic,16                   0.1678 (1.16x)
+    row / dynamic,64                   0.1741 (1.12x)
+    row / dynamic,256                  0.2005 (0.97x)
+    row / guided                       0.1629 (1.19x)
+    nnz / (any schedule)               0.1602 (1.21x)
+
+ -- heart1 / ell-omp
+    partition / schedule       time ms (vs static/row)
+    row / static                       0.4567 (1.00x)
+    row / dynamic,16                   0.4990 (0.92x)
+    row / dynamic,64                   0.5188 (0.88x)
+    row / dynamic,256                  0.5821 (0.78x)
+    row / guided                       0.5503 (0.83x)
+    nnz / (any schedule)               0.4566 (1.00x)
+
+
+==============================================================================
+ [4] STRONG SCALING: S(t)=T1/Tt and E(t)=S/t (cell = S/E%)  -- report 2d
+==============================================================================
+
+ -- ecology2 / csr-omp
+    schedule       part            t=1           t=2           t=4           t=8          t=16
+    static         row       1.00/100%      1.95/98%     4.03/101%     7.97/100%     15.72/98%
+    dynamic,16     row       1.00/100%      0.73/36%      0.41/10%       0.74/9%       1.28/8%
+    dynamic,64     row       1.00/100%      0.73/37%      0.98/25%      2.03/25%      2.98/19%
+    dynamic,256    row       1.00/100%      1.15/57%      1.67/42%      2.86/36%      3.25/20%
+    guided         row       1.00/100%      1.96/98%      3.16/79%      3.77/47%      4.04/25%
+    (any)          nnz       1.00/100%      1.75/87%      2.96/74%      4.36/55%      3.17/20%
+
+ -- ecology2 / ell-omp
+    schedule       part            t=1           t=2           t=4           t=8          t=16
+    static         row       1.00/100%      1.97/98%     4.11/103%     8.12/101%     15.59/97%
+    dynamic,16     row       1.00/100%      0.53/27%      0.38/10%       0.53/7%       1.06/7%
+    dynamic,64     row       1.00/100%      0.66/33%      0.91/23%      1.88/23%      2.93/18%
+    dynamic,256    row       1.00/100%      1.05/53%      1.64/41%      2.48/31%      2.83/18%
+    guided         row       1.00/100%      1.87/94%      2.80/70%      3.34/42%      4.10/26%
+    (any)          nnz       1.00/100%      1.95/98%     4.10/103%     8.11/101%     15.82/99%
+
+ -- atmosmodd / csr-omp
+    schedule       part            t=1           t=2           t=4           t=8          t=16
+    static         row       1.00/100%      1.95/97%      2.63/66%      4.21/53%      8.50/53%
+    dynamic,16     row       1.00/100%      0.77/38%      0.76/19%       0.73/9%       1.27/8%
+    dynamic,64     row       1.00/100%      0.81/40%      1.25/31%      1.55/19%      2.45/15%
+    dynamic,256    row       1.00/100%      1.15/58%      1.86/47%      2.30/29%      1.97/12%
+    guided         row       1.00/100%      1.96/98%      2.69/67%      2.79/35%      4.09/26%
+    (any)          nnz       1.00/100%      1.74/87%      2.44/61%      3.53/44%      3.86/24%
+
+ -- atmosmodd / ell-omp
+    schedule       part            t=1           t=2           t=4           t=8          t=16
+    static         row       1.00/100%      1.96/98%      2.39/60%      3.89/49%      8.32/52%
+    dynamic,16     row       1.00/100%      0.60/30%      0.59/15%       0.64/8%       1.14/7%
+    dynamic,64     row       1.00/100%      0.67/34%      1.05/26%      1.30/16%      2.23/14%
+    dynamic,256    row       1.00/100%      1.06/53%      1.75/44%      1.92/24%      2.55/16%
+    guided         row       1.00/100%      1.96/98%      2.41/60%      2.71/34%      3.50/22%
+    (any)          nnz       1.00/100%      1.95/97%      2.29/57%      3.94/49%      8.16/51%
+
+ -- lp_wood1p / csr-omp
+    schedule       part            t=1           t=2           t=4           t=8          t=16
+    static         row       1.00/100%      1.44/72%      2.00/50%      2.82/35%      3.97/25%
+    dynamic,16     row       1.00/100%      1.75/87%      2.90/72%      3.88/49%      4.58/29%
+    dynamic,64     row       1.00/100%      1.59/80%      2.18/54%      2.11/26%      2.03/13%
+    dynamic,256    row       1.00/100%      0.98/49%      0.97/24%      0.96/12%       0.95/6%
+    guided         row       1.00/100%      1.81/91%      3.19/80%      4.40/55%      4.66/29%
+    (any)          nnz       1.00/100%      1.88/94%      3.34/83%      5.33/67%      6.67/42%
+
+ -- lp_wood1p / ell-omp
+    schedule       part            t=1           t=2           t=4           t=8          t=16
+    static         row       1.00/100%      1.98/99%      3.89/97%      7.33/92%     13.45/84%
+    dynamic,16     row       1.00/100%      1.91/96%      3.75/94%      7.16/89%     13.31/83%
+    dynamic,64     row       1.00/100%      1.89/95%      3.74/93%      3.70/46%      3.70/23%
+    dynamic,256    row       1.00/100%      0.99/49%      1.00/25%      0.99/12%       0.99/6%
+    guided         row       1.00/100%      1.98/99%      3.86/97%      7.27/91%     13.21/83%
+    (any)          nnz       1.00/100%     2.01/100%      3.92/98%      7.46/93%     13.68/86%
+
+ -- heart1 / csr-omp
+    schedule       part            t=1           t=2           t=4           t=8          t=16
+    static         row       1.00/100%      1.99/99%      3.76/94%      6.31/79%     12.21/76%
+    dynamic,16     row       1.00/100%      1.94/97%      3.81/95%      7.38/92%     13.83/86%
+    dynamic,64     row       1.00/100%      1.97/99%      3.78/95%      7.11/89%     11.85/74%
+    dynamic,256    row       1.00/100%      1.95/97%      3.39/85%      6.13/77%     10.80/67%
+    guided         row       1.00/100%      1.99/99%      3.92/98%      7.56/94%     13.50/84%
+    (any)          nnz       1.00/100%     2.01/100%      3.97/99%      7.73/97%     14.70/92%
+
+ -- heart1 / ell-omp
+    schedule       part            t=1           t=2           t=4           t=8          t=16
+    static         row       1.00/100%     2.04/102%     4.09/102%     8.11/101%    15.95/100%
+    dynamic,16     row       1.00/100%     2.00/100%      3.95/99%      7.45/93%      7.85/49%
+    dynamic,64     row       1.00/100%      1.98/99%      3.94/98%      7.12/89%      8.57/54%
+    dynamic,256    row       1.00/100%     2.00/100%      3.50/87%      6.35/79%      9.70/61%
+    guided         row       1.00/100%      1.98/99%      3.96/99%      6.73/84%      9.76/61%
+    (any)          nnz       1.00/100%     2.04/102%     4.10/103%     8.12/102%    15.95/100%
+
+
+==============================================================================
+ [5] PROBLEMS (any run whose check is not PASS/base)
+==============================================================================
+  none: all runs PASSed.
+
+
+------------------------------------------------------------------------------
+ Map to report:  2b <- [predict table]   2c <- [3]   2d <- [1],[4]   2e(b) <- [2]   2e(d) <- predict vs [1]
+ Raw data: results/results.tsv   |   full log: results/run_all.log
+------------------------------------------------------------------------------
