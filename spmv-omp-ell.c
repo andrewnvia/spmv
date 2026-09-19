@@ -56,7 +56,47 @@ static void spmv_ell_rows(const ell_matrix * A, const csr_matrix * csr,
 static void spmv_ell_nnz(const ell_matrix * A, const csr_matrix * csr,
                          const float * x, float * y)
 {
-    spmv_ell_rows(A, csr, x, y);   /* placeholder */
+    (void)csr;
+    const int K = A->max_row_len;
+    /* Modified from OMP-CSR version */
+    #pragma omp parallel
+    {
+        const int total = csr->num_nonzeros;
+        const int thread_num = omp_get_num_threads();
+        /* Use of Chatgpt to find clean calculation for index boundaries */
+        const int curr_thread = omp_get_thread_num();
+        const int start = (curr_thread * total) / thread_num;
+        const int end   = ((curr_thread + 1) * total) / thread_num;
+        
+        int start_row = 0;
+        int end_row = csr->num_rows;
+        /* Use CSR to find row split for ELL array */
+        /* Find start/end index for row */
+        for (int i = 0; i < csr->num_rows; i++) {
+            if (start < csr->row_ptr[i+1]) {
+                start_row = i;
+                break;
+            }
+        }
+        for (int i = 0; i < csr->num_rows; i++) {
+            if (end < csr->row_ptr[i+1]) {
+                end_row = i;
+                break;
+            }
+        }
+        /* don't ignore empty rows at start */
+        if (curr_thread == 0) start_row = 0;
+
+        
+        for (int i = start_row; i < end_row; i++) {
+            const float * v = A->vals    + (size_t)i * K;
+            const int   * c = A->col_idx + (size_t)i * K;
+            float sum = 0.0f;
+            for (int k = 0; k < K; k++)
+                sum += v[k] * x[c[k]];
+            y[i] = sum;
+        }
+    }
 }
 
 /* ====================================================================
