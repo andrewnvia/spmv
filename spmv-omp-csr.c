@@ -54,7 +54,40 @@ static void spmv_csr_rows(const csr_matrix * A, const float * x, float * y)
  * nonzeros rather than the same number of rows.  TODO (Task 1b). */
 static void spmv_csr_nnz(const csr_matrix * A, const float * x, float * y)
 {
-    spmv_csr_rows(A, x, y);   /* placeholder */
+    #pragma omp parallel
+    {
+        const int total = A->num_nonzeros;
+        const int thread_num = omp_get_num_threads();
+        /* Use of Chatgpt to find clean calculation for index boundaries */
+        const int curr_thread = omp_get_thread_num();
+        const int start = (curr_thread * total) / thread_num;
+        const int end   = ((curr_thread + 1) * total) / thread_num;
+        
+        int start_row = 0;
+        int end_row = A->num_rows;
+        /* Find start/end index for row */
+        for (int i = 0; i < A->num_rows; i++) {
+            if (start < A->row_ptr[i+1]) {
+                start_row = i;
+                break;
+            }
+        }
+        for (int i = 0; i < A->num_rows; i++) {
+            if (end < A->row_ptr[i+1]) {
+                end_row = i;
+                break;
+            }
+        }
+        /* don't ignore empty rows at start */
+        if (curr_thread == 0) start_row = 0;
+
+        for (int i = start_row; i < end_row; i++) {
+            float sum = 0.0f;
+            for (int k = A->row_ptr[i]; k < A->row_ptr[i+1]; k++)
+                sum += A->vals[k] * x[A->col_idx[k]];
+            y[i] = sum;
+        }
+    }
 }
 
 /* ====================================================================
